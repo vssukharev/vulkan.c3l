@@ -20,6 +20,7 @@ extern "C" {
 
 
 #define vulkan_video_codec_h264std 1
+#include "vulkan_video_codecs_common.h"
 #include <stdint.h>
 // Vulkan 0.9 provisional Vulkan video H.264 encode and decode std specification version number
 #define VK_STD_VULKAN_VIDEO_CODEC_H264_API_VERSION_0_9_5 VK_MAKE_VIDEO_STD_VERSION(0, 9, 5) // Patch version should always be set to 0

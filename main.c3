@@ -5,12 +5,14 @@ import std::collections::list;
 
 alias StringList = List{String};
 
-macro log(String name, ...) {
-  io::printf("[LOG]: ");
+macro log(String name, ...) 
+{
+  io::printf("--- ");
   io::printfn(name, $vasplat);
 }
 
-fn bool is_func_macro_ignored(String name) {
+fn bool is_func_macro_ignored(String name) 
+{
   switch (name) {
     case "VK_DEFINE_HANDLE":
     case "VK_DEFINE_NON_DISPATCHABLE_HANDLE": 
@@ -24,18 +26,23 @@ fn bool is_func_macro_ignored(String name) {
   }
 }
 
-fn bool is_const_ignored(String name) {
+fn bool is_const_ignored(String name) 
+{
+  if (name.ends_with("_")) return true;
+
   switch (name) {
     case "VK_LAYER_EXPORT": 
+    case "VK_VERSION_1_0":
+    case "VK_USE_64_BIT_PTR_DEFINES":
       return true;
     default:                
       return false;
   }
 }
 
-fn String get_if_condition(String name) {
-  switch (name)
-  {
+fn String get_if_condition(String name) 
+{
+  switch (name) {
     case "VkIcdSurfaceMir":
       return "env::VK_USE_PLATFORM_MIR_KHR";
 
@@ -68,8 +75,10 @@ fn String get_if_condition(String name) {
   }
 }
 
-fn String get_func_macro_body(String name) {
-  switch (name) {
+fn String get_func_macro_body(String name) 
+{
+  switch (name) 
+  {
     case "VK_MAKE_VERSION":
       return "return ((#major) << 22) | ((#minor) << 12) | (#patch);";
 
@@ -96,28 +105,46 @@ fn String get_func_macro_body(String name) {
 
     case "VK_API_VERSION_PATCH":
       return "return (uint)(#version) & 0xFFFU;";
-  }
 
-  return name;
+    case "VK_MAKE_VIDEO_STD_VERSION":
+      return "return (((uint)#major) << 22) | (((uint)#minor) << 12) | ((uint)#patch);";
+
+    default:
+      return "";
+  }
 }
 
-macro void translate_headers(Path root, String $ver) => @pool() {
-  
+fn String get_const_rhs(String name) 
+{
+  switch (name) 
+  {
+    case "VK_QUEUE_FAMILY_EXTERNAL":
+      return "~0U-1U";
+
+    case "VK_QUEUE_FAMILY_FOREIGN_EXT":
+      return "~0U-2U";
+
+    default:
+      return "";
+  }
+}
+
+macro void translate_headers(Path root, String $ver) => @pool() 
+{
   Path out = root.tappend("import/" +++ $ver +++ "/vulkan.c3i")!!;
-  Path current = root.tappend("headers/" +++ $ver +++ "/vulkan")!!;
+  Path current = root.tappend("headers/" +++ $ver)!!;
   path::chdir(current)!!; 
   log("Changed directory to %s", current);
 
   BGTransCallbacks transfns = {
     .func = fn String(String name, Allocator alloc) =>
-      name.strip("vk").camel_to_snake(alloc),
+      name.strip("vk").pascal_to_camel(alloc),
 
     .type = fn String(String name, Allocator alloc) =>
       name.map_basic_type(alloc) ?? name.copy(alloc),
 
     .variable = fn String(String name, Allocator alloc) =>
-      name == "module" ? "mod" :
-      name.camel_to_snake(alloc),
+      name == "module" ? "mod" : name.pascal_to_camel(alloc),
       
     .constant = fn String(String name, Allocator alloc) =>
       is_const_ignored(name) ? "" : 
@@ -125,30 +152,24 @@ macro void translate_headers(Path root, String $ver) => @pool() {
 
     .func_macro = fn String(String name, Allocator alloc) =>
       is_func_macro_ignored(name) ? "" : 
-      name.strip("VK_").screaming_to_snake(alloc),
+      name.strip("VK_").screaming_to_camel(alloc),
   };
 
   BGGenCallbacks genfns = {
     .func_macro = fn String(String name, Allocator alloc) =>
       get_func_macro_body(name).copy(alloc),
 
+    .constant = fn String(String name, Allocator alloc) =>
+      get_const_rhs(name).copy(alloc),
+
     .if_condition = fn String(String name, Allocator alloc) =>
       get_if_condition(name).copy(alloc),
   };
 
-  // StringList headers;
-  // headers.tinit();
-  // // foreach (p : path::ls(tmem, current)!!) {
-  // //   if (is_path_ignored(p)) continue;
-  // //   headers.push(p.str_view());
-  // // }
-  // headers.push(current.tappend("vulkan_core.h").str_view())!!;
-  // headers.push(current.tappend("vulkan_android.h").str_view())!!;
-  // // headers.push(current.tappend("vk_icd.h").str_view())!!;
-
   BGOptions opts = {
     .out_name = out.str_view(),
     .clang_args = { 
+      "-I.",
       "-DVK_ENABLE_BETA_EXTENSIONS",
       // "-DVK_USE_PLATFORM_MIR_KHR",
       // "-DVK_USE_PLATFORM_WAYLAND_KHR",
@@ -166,15 +187,16 @@ macro void translate_headers(Path root, String $ver) => @pool() {
       name.contains("vulkan_"),
   };
 
-  bg::translate_header("vulkan.h", transfns, opts, genfns)!!;
+  bg::translate_header("vulkan/vulkan.h", transfns, opts, genfns)!!;
 }
 
 
 fn void main(String[] args) {
-
   Path root = path::cwd(tmem)!!;
   translate_headers(root, "1.1");
-  // translate_headers(root, "1.2");
+  translate_headers(root, "1.2");
+  translate_headers(root, "1.3");
+  translate_headers(root, "1.4");
 }
 
 

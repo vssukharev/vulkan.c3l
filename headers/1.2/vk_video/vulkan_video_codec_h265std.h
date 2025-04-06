@@ -20,6 +20,7 @@ extern "C" {
 
 
 #define vulkan_video_codec_h265std 1
+#include "vulkan_video_codecs_common.h"
 // Vulkan 0.5 version number WIP
 #define VK_STD_VULKAN_VIDEO_CODEC_H265_API_VERSION_0_9_5 VK_MAKE_VIDEO_STD_VERSION(0, 9, 5) // Patch version should always be set to 0
 

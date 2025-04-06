@@ -1,0 +1,7 @@
+
+module vulkan::vk;
+
+macro @makeApiVersion(#variant, #major, #minor, #patch) {
+  return (((uint)(#variant)) << 29U) | (((uint)(#major)) << 22U) | (((uint)(#minor)) << 12U) | ((uint)(#patch));
+}
+

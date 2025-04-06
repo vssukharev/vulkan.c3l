@@ -1,5 +1,5 @@
 
-module vulkan::vk;
+module vulkan::vk @if($defined(env::VK_API_VERSION_1_1) &&& env::VK_API_VERSION_1_1 == vk::@makeApiVersion(0, 1, 1, 0));
 
 macro @makeVersion(#major, #minor, #patch) {
   return ((#major) << 22) | ((#minor) << 12) | (#patch);
@@ -12622,7 +12622,7 @@ fn VkResult createViSurfaceNN(
 
 alias VkWaylandSurfaceCreateFlagsKHR @if($defined(env::VK_USE_PLATFORM_WAYLAND_KHR) &&& env::VK_USE_PLATFORM_WAYLAND_KHR) = VkFlags;
 
-typedef WlSurface = void;
+typedef WlSurface @private = void;
 
 struct VkWaylandSurfaceCreateInfoKHR @if($defined(env::VK_USE_PLATFORM_WAYLAND_KHR) &&& env::VK_USE_PLATFORM_WAYLAND_KHR) {
   VkStructureType sType;

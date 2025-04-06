@@ -18,6 +18,19 @@ macro String @get_platform_condition(String $platform)
   return "$defined(" +++ $str +++ ") &&& " +++ $str; 
 }
 
+macro String @get_version_condition(String $major, String $minor)
+{
+  var $str = "env::VK_API_VERSION_" +++ $major +++ "_" +++ $minor;
+  var $pref;
+  $if $minor == "4":
+    $pref = "!$defined(" +++ $str +++ ") ||| ";
+  $else
+    $pref = "$defined(" +++ $str +++ ") &&& ";
+  $endif
+
+  return $pref +++ $str +++ " == vk::@makeApiVersion(0, " +++ $major +++ ", " +++ $minor +++ ", 0)"; 
+}
+
 macro String.contains_ext(self, ...)
 {
   bool res;
@@ -45,8 +58,8 @@ fn bool is_func_macro_ignored(String name)
   switch (name) {
     case "VK_DEFINE_HANDLE":
     case "VK_DEFINE_NON_DISPATCHABLE_HANDLE": 
+    case "VK_MAKE_API_VERSION":
     // case "VK_MAKE_VERSION":
-    // case "VK_VERSION_MAJOR":
     // case "VK_VERSION_MINOR":
     // case "VK_VERSION_PATCH":
       return true;
@@ -213,9 +226,10 @@ fn String trans_type(String name, Allocator alloc)
   return res;
 }
 
-macro void translate_headers(Path root, String $ver) => @pool() 
+macro void translate_headers(Path root, String $major_ver, String $minor_ver)
 {
-  Path out = root.tappend("import/" +++ $ver +++ "/vulkan.c3i")!!;
+  var $ver = $major_ver +++ "_" +++ $minor_ver;
+  Path out = root.tappend("import/vk" +++ $ver +++ ".c3i")!!;
   Path current = root.tappend("headers/" +++ $ver)!!;
   path::chdir(current)!!; 
   log("Changed directory to %s", current);
@@ -271,7 +285,7 @@ macro void translate_headers(Path root, String $ver) => @pool()
       // "VK_USE_PLATFORM_SCI",
       "-DVK_ENABLE_BETA_EXTENSIONS",
     },
-    .module_name = "vulkan::vk",
+    .module_name = "vulkan::vk @if(" +++ @get_version_condition($major_ver, $minor_ver) +++ ")",
     .skip_errors = false,
     .no_verbose = true,
     .include_file = fn bool(String path) => path.contains("vulkan_"),
@@ -284,10 +298,10 @@ macro void translate_headers(Path root, String $ver) => @pool()
 fn void main(String[] args) 
 {
   Path root = path::cwd(tmem)!!;
-  translate_headers(root, "1.1");
-  translate_headers(root, "1.2");
-  translate_headers(root, "1.3");
-  translate_headers(root, "1.4");
+  translate_headers(root, "1", "1");
+  translate_headers(root, "1", "2");
+  translate_headers(root, "1", "3");
+  translate_headers(root, "1", "4");
 }
 
 

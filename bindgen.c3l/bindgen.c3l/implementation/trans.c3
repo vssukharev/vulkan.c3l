@@ -259,18 +259,14 @@ fn String? tokensUnderCursor(
 
         if (is_func_macro)
         {
-          if (try t = trans::apply(token_str, tfns.func_macro, tmem)) 
-          {
-            res.append("@");
-            res.append(t);
-          }
+          String t = trans::apply(token_str, tfns.func_macro, tmem)!;
+          res.append("@");
+          res.append(t);
         }
         else
         {
-          if (try t = trans::apply(token_str, tfns.constant, tmem))
-          {
-            res.append(t);
-          }
+          String t = trans::apply(token_str, tfns.constant, tmem)!;
+          res.append(t);
         }
 
       case clang::TOKEN_LITERAL:

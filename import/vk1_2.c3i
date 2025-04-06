@@ -1,5 +1,5 @@
 
-module vulkan::vk;
+module vulkan::vk @if($defined(env::VK_API_VERSION_1_2) &&& env::VK_API_VERSION_1_2 == vk::@makeApiVersion(0, 1, 2, 0));
 
 const NULL_HANDLE = ((void*)0);
 
@@ -7,15 +7,7 @@ macro @makeVersion(#major, #minor, #patch) {
   return ((#major) << 22) | ((#minor) << 12) | (#patch);
 }
 
-macro @makeApiVersion(#variant, #major, #minor, #patch) {
-  return (((uint)(#variant)) << 29U) | (((uint)(#major)) << 22U) | (((uint)(#minor)) << 12U) | ((uint)(#patch));
-}
-
-const API_VERSION_1_0 = @makeApiVersion(0,1,0,0);
-
 const HEADER_VERSION = 203;
-
-const HEADER_VERSION_COMPLETE = @makeApiVersion(0,1,2,HEADER_VERSION);
 
 macro @versionMajor(#version) {
   return (uint)(#version) >> 22;
@@ -77,8 +69,6 @@ const MAX_DESCRIPTION_SIZE = 256U;
 
 const VERSION_1_1 = 1;
 
-const API_VERSION_1_1 = @makeApiVersion(0,1,1,0);
-
 const MAX_DEVICE_GROUP_SIZE = 32U;
 
 const LUID_SIZE = 8U;
@@ -86,8 +76,6 @@ const LUID_SIZE = 8U;
 const QUEUE_FAMILY_EXTERNAL = ~0U-1U;
 
 const VERSION_1_2 = 1;
-
-const API_VERSION_1_2 = @makeApiVersion(0,1,2,0);
 
 const MAX_DRIVER_NAME_SIZE = 256U;
 
@@ -16925,7 +16913,7 @@ fn VkResult createViSurfaceNN(
 
 alias VkWaylandSurfaceCreateFlagsKHR @if($defined(env::VK_USE_PLATFORM_WAYLAND_KHR) &&& env::VK_USE_PLATFORM_WAYLAND_KHR) = VkFlags;
 
-typedef WlSurface = void;
+typedef WlSurface @private = void;
 
 struct VkWaylandSurfaceCreateInfoKHR @if($defined(env::VK_USE_PLATFORM_WAYLAND_KHR) &&& env::VK_USE_PLATFORM_WAYLAND_KHR) {
   VkStructureType sType;
@@ -17401,9 +17389,9 @@ struct VkPresentFrameTokenGGP @if($defined(env::VK_USE_PLATFORM_GGP) &&& env::VK
 
 alias VkScreenSurfaceCreateFlagsQNX @if($defined(env::VK_USE_PLATFORM_SCREEN_QNX) &&& env::VK_USE_PLATFORM_SCREEN_QNX) = VkFlags;
 
-typedef _Screen_context = void;
+typedef _Screen_context @private = void;
 
-typedef _Screen_window = void;
+typedef _Screen_window @private = void;
 
 struct VkScreenSurfaceCreateInfoQNX @if($defined(env::VK_USE_PLATFORM_SCREEN_QNX) &&& env::VK_USE_PLATFORM_SCREEN_QNX) {
   VkStructureType sType;

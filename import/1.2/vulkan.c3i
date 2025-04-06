@@ -1553,47 +1553,155 @@ const KHR_RAY_QUERY_SPEC_VERSION = 1;
 
 const KHR_RAY_QUERY_EXTENSION_NAME = "VK_KHR_ray_query";
 
-const KHR_ANDROID_SURFACE = 1;
+const KHR_ANDROID_SURFACE @if($defined(env::VK_USE_PLATFORM_ANDROID_KHR) &&& env::VK_USE_PLATFORM_ANDROID_KHR) = 1;
 
-const KHR_ANDROID_SURFACE_SPEC_VERSION = 6;
+const KHR_ANDROID_SURFACE_SPEC_VERSION @if($defined(env::VK_USE_PLATFORM_ANDROID_KHR) &&& env::VK_USE_PLATFORM_ANDROID_KHR) = 6;
 
-const KHR_ANDROID_SURFACE_EXTENSION_NAME = "VK_KHR_android_surface";
+const KHR_ANDROID_SURFACE_EXTENSION_NAME @if($defined(env::VK_USE_PLATFORM_ANDROID_KHR) &&& env::VK_USE_PLATFORM_ANDROID_KHR) = "VK_KHR_android_surface";
 
-const ANDROID_EXTERNAL_MEMORY_ANDROID_HARDWARE_BUFFER = 1;
+const ANDROID_EXTERNAL_MEMORY_ANDROID_HARDWARE_BUFFER @if($defined(env::VK_USE_PLATFORM_ANDROID_KHR) &&& env::VK_USE_PLATFORM_ANDROID_KHR) = 1;
 
-const ANDROID_EXTERNAL_MEMORY_ANDROID_HARDWARE_BUFFER_SPEC_VERSION = 4;
+const ANDROID_EXTERNAL_MEMORY_ANDROID_HARDWARE_BUFFER_SPEC_VERSION @if($defined(env::VK_USE_PLATFORM_ANDROID_KHR) &&& env::VK_USE_PLATFORM_ANDROID_KHR) = 4;
 
-const ANDROID_EXTERNAL_MEMORY_ANDROID_HARDWARE_BUFFER_EXTENSION_NAME = "VK_ANDROID_external_memory_android_hardware_buffer";
+const ANDROID_EXTERNAL_MEMORY_ANDROID_HARDWARE_BUFFER_EXTENSION_NAME @if($defined(env::VK_USE_PLATFORM_ANDROID_KHR) &&& env::VK_USE_PLATFORM_ANDROID_KHR) = "VK_ANDROID_external_memory_android_hardware_buffer";
 
-const MVK_IOS_SURFACE = 1;
+const FUCHSIA_IMAGEPIPE_SURFACE @if($defined(env::VK_USE_PLATFORM_FUCHSIA) &&& env::VK_USE_PLATFORM_FUCHSIA) = 1;
 
-const MVK_IOS_SURFACE_SPEC_VERSION = 3;
+const FUCHSIA_IMAGEPIPE_SURFACE_SPEC_VERSION @if($defined(env::VK_USE_PLATFORM_FUCHSIA) &&& env::VK_USE_PLATFORM_FUCHSIA) = 1;
 
-const MVK_IOS_SURFACE_EXTENSION_NAME = "VK_MVK_ios_surface";
+const FUCHSIA_IMAGEPIPE_SURFACE_EXTENSION_NAME @if($defined(env::VK_USE_PLATFORM_FUCHSIA) &&& env::VK_USE_PLATFORM_FUCHSIA) = "VK_FUCHSIA_imagepipe_surface";
 
-const MVK_MACOS_SURFACE = 1;
+const FUCHSIA_EXTERNAL_MEMORY @if($defined(env::VK_USE_PLATFORM_FUCHSIA) &&& env::VK_USE_PLATFORM_FUCHSIA) = 1;
 
-const MVK_MACOS_SURFACE_SPEC_VERSION = 3;
+const FUCHSIA_EXTERNAL_MEMORY_SPEC_VERSION @if($defined(env::VK_USE_PLATFORM_FUCHSIA) &&& env::VK_USE_PLATFORM_FUCHSIA) = 1;
 
-const MVK_MACOS_SURFACE_EXTENSION_NAME = "VK_MVK_macos_surface";
+const FUCHSIA_EXTERNAL_MEMORY_EXTENSION_NAME @if($defined(env::VK_USE_PLATFORM_FUCHSIA) &&& env::VK_USE_PLATFORM_FUCHSIA) = "VK_FUCHSIA_external_memory";
 
-const EXT_METAL_SURFACE = 1;
+const FUCHSIA_EXTERNAL_SEMAPHORE @if($defined(env::VK_USE_PLATFORM_FUCHSIA) &&& env::VK_USE_PLATFORM_FUCHSIA) = 1;
 
-const EXT_METAL_SURFACE_SPEC_VERSION = 1;
+const FUCHSIA_EXTERNAL_SEMAPHORE_SPEC_VERSION @if($defined(env::VK_USE_PLATFORM_FUCHSIA) &&& env::VK_USE_PLATFORM_FUCHSIA) = 1;
 
-const EXT_METAL_SURFACE_EXTENSION_NAME = "VK_EXT_metal_surface";
+const FUCHSIA_EXTERNAL_SEMAPHORE_EXTENSION_NAME @if($defined(env::VK_USE_PLATFORM_FUCHSIA) &&& env::VK_USE_PLATFORM_FUCHSIA) = "VK_FUCHSIA_external_semaphore";
 
-const NN_VI_SURFACE = 1;
+const FUCHSIA_BUFFER_COLLECTION @if($defined(env::VK_USE_PLATFORM_FUCHSIA) &&& env::VK_USE_PLATFORM_FUCHSIA) = 1;
 
-const NN_VI_SURFACE_SPEC_VERSION = 1;
+const FUCHSIA_BUFFER_COLLECTION_SPEC_VERSION @if($defined(env::VK_USE_PLATFORM_FUCHSIA) &&& env::VK_USE_PLATFORM_FUCHSIA) = 2;
 
-const NN_VI_SURFACE_EXTENSION_NAME = "VK_NN_vi_surface";
+const FUCHSIA_BUFFER_COLLECTION_EXTENSION_NAME @if($defined(env::VK_USE_PLATFORM_FUCHSIA) &&& env::VK_USE_PLATFORM_FUCHSIA) = "VK_FUCHSIA_buffer_collection";
 
-const KHR_WAYLAND_SURFACE = 1;
+const MVK_IOS_SURFACE @if($defined(env::VK_USE_PLATFORM_IOS_MVK) &&& env::VK_USE_PLATFORM_IOS_MVK) = 1;
 
-const KHR_WAYLAND_SURFACE_SPEC_VERSION = 6;
+const MVK_IOS_SURFACE_SPEC_VERSION @if($defined(env::VK_USE_PLATFORM_IOS_MVK) &&& env::VK_USE_PLATFORM_IOS_MVK) = 3;
 
-const KHR_WAYLAND_SURFACE_EXTENSION_NAME = "VK_KHR_wayland_surface";
+const MVK_IOS_SURFACE_EXTENSION_NAME @if($defined(env::VK_USE_PLATFORM_IOS_MVK) &&& env::VK_USE_PLATFORM_IOS_MVK) = "VK_MVK_ios_surface";
+
+const MVK_MACOS_SURFACE @if($defined(env::VK_USE_PLATFORM_MACOS_MVK) &&& env::VK_USE_PLATFORM_MACOS_MVK) = 1;
+
+const MVK_MACOS_SURFACE_SPEC_VERSION @if($defined(env::VK_USE_PLATFORM_MACOS_MVK) &&& env::VK_USE_PLATFORM_MACOS_MVK) = 3;
+
+const MVK_MACOS_SURFACE_EXTENSION_NAME @if($defined(env::VK_USE_PLATFORM_MACOS_MVK) &&& env::VK_USE_PLATFORM_MACOS_MVK) = "VK_MVK_macos_surface";
+
+const EXT_METAL_SURFACE @if($defined(env::VK_USE_PLATFORM_METAL_EXT) &&& env::VK_USE_PLATFORM_METAL_EXT) = 1;
+
+const EXT_METAL_SURFACE_SPEC_VERSION @if($defined(env::VK_USE_PLATFORM_METAL_EXT) &&& env::VK_USE_PLATFORM_METAL_EXT) = 1;
+
+const EXT_METAL_SURFACE_EXTENSION_NAME @if($defined(env::VK_USE_PLATFORM_METAL_EXT) &&& env::VK_USE_PLATFORM_METAL_EXT) = "VK_EXT_metal_surface";
+
+const NN_VI_SURFACE @if($defined(env::VK_USE_PLATFORM_VI_NN) &&& env::VK_USE_PLATFORM_VI_NN) = 1;
+
+const NN_VI_SURFACE_SPEC_VERSION @if($defined(env::VK_USE_PLATFORM_VI_NN) &&& env::VK_USE_PLATFORM_VI_NN) = 1;
+
+const NN_VI_SURFACE_EXTENSION_NAME @if($defined(env::VK_USE_PLATFORM_VI_NN) &&& env::VK_USE_PLATFORM_VI_NN) = "VK_NN_vi_surface";
+
+const KHR_WAYLAND_SURFACE @if($defined(env::VK_USE_PLATFORM_WAYLAND_KHR) &&& env::VK_USE_PLATFORM_WAYLAND_KHR) = 1;
+
+const KHR_WAYLAND_SURFACE_SPEC_VERSION @if($defined(env::VK_USE_PLATFORM_WAYLAND_KHR) &&& env::VK_USE_PLATFORM_WAYLAND_KHR) = 6;
+
+const KHR_WAYLAND_SURFACE_EXTENSION_NAME @if($defined(env::VK_USE_PLATFORM_WAYLAND_KHR) &&& env::VK_USE_PLATFORM_WAYLAND_KHR) = "VK_KHR_wayland_surface";
+
+const KHR_WIN32_SURFACE @if($defined(env::VK_USE_PLATFORM_WIN32_KHR) &&& env::VK_USE_PLATFORM_WIN32_KHR) = 1;
+
+const KHR_WIN32_SURFACE_SPEC_VERSION @if($defined(env::VK_USE_PLATFORM_WIN32_KHR) &&& env::VK_USE_PLATFORM_WIN32_KHR) = 6;
+
+const KHR_WIN32_SURFACE_EXTENSION_NAME @if($defined(env::VK_USE_PLATFORM_WIN32_KHR) &&& env::VK_USE_PLATFORM_WIN32_KHR) = "VK_KHR_win32_surface";
+
+const KHR_EXTERNAL_MEMORY_WIN32 = 1;
+
+const KHR_EXTERNAL_MEMORY_WIN32_SPEC_VERSION @if($defined(env::VK_USE_PLATFORM_WIN32_KHR) &&& env::VK_USE_PLATFORM_WIN32_KHR) = 1;
+
+const KHR_EXTERNAL_MEMORY_WIN32_EXTENSION_NAME @if($defined(env::VK_USE_PLATFORM_WIN32_KHR) &&& env::VK_USE_PLATFORM_WIN32_KHR) = "VK_KHR_external_memory_win32";
+
+const KHR_WIN32_KEYED_MUTEX @if($defined(env::VK_USE_PLATFORM_WIN32_KHR) &&& env::VK_USE_PLATFORM_WIN32_KHR) = 1;
+
+const KHR_WIN32_KEYED_MUTEX_SPEC_VERSION @if($defined(env::VK_USE_PLATFORM_WIN32_KHR) &&& env::VK_USE_PLATFORM_WIN32_KHR) = 1;
+
+const KHR_WIN32_KEYED_MUTEX_EXTENSION_NAME @if($defined(env::VK_USE_PLATFORM_WIN32_KHR) &&& env::VK_USE_PLATFORM_WIN32_KHR) = "VK_KHR_win32_keyed_mutex";
+
+const KHR_EXTERNAL_SEMAPHORE_WIN32 = 1;
+
+const KHR_EXTERNAL_SEMAPHORE_WIN32_SPEC_VERSION @if($defined(env::VK_USE_PLATFORM_WIN32_KHR) &&& env::VK_USE_PLATFORM_WIN32_KHR) = 1;
+
+const KHR_EXTERNAL_SEMAPHORE_WIN32_EXTENSION_NAME @if($defined(env::VK_USE_PLATFORM_WIN32_KHR) &&& env::VK_USE_PLATFORM_WIN32_KHR) = "VK_KHR_external_semaphore_win32";
+
+const KHR_EXTERNAL_FENCE_WIN32 = 1;
+
+const KHR_EXTERNAL_FENCE_WIN32_SPEC_VERSION @if($defined(env::VK_USE_PLATFORM_WIN32_KHR) &&& env::VK_USE_PLATFORM_WIN32_KHR) = 1;
+
+const KHR_EXTERNAL_FENCE_WIN32_EXTENSION_NAME @if($defined(env::VK_USE_PLATFORM_WIN32_KHR) &&& env::VK_USE_PLATFORM_WIN32_KHR) = "VK_KHR_external_fence_win32";
+
+const NV_EXTERNAL_MEMORY_WIN32 = 1;
+
+const NV_EXTERNAL_MEMORY_WIN32_SPEC_VERSION @if($defined(env::VK_USE_PLATFORM_WIN32_KHR) &&& env::VK_USE_PLATFORM_WIN32_KHR) = 1;
+
+const NV_EXTERNAL_MEMORY_WIN32_EXTENSION_NAME @if($defined(env::VK_USE_PLATFORM_WIN32_KHR) &&& env::VK_USE_PLATFORM_WIN32_KHR) = "VK_NV_external_memory_win32";
+
+const NV_WIN32_KEYED_MUTEX @if($defined(env::VK_USE_PLATFORM_WIN32_KHR) &&& env::VK_USE_PLATFORM_WIN32_KHR) = 1;
+
+const NV_WIN32_KEYED_MUTEX_SPEC_VERSION @if($defined(env::VK_USE_PLATFORM_WIN32_KHR) &&& env::VK_USE_PLATFORM_WIN32_KHR) = 2;
+
+const NV_WIN32_KEYED_MUTEX_EXTENSION_NAME @if($defined(env::VK_USE_PLATFORM_WIN32_KHR) &&& env::VK_USE_PLATFORM_WIN32_KHR) = "VK_NV_win32_keyed_mutex";
+
+const EXT_FULL_SCREEN_EXCLUSIVE = 1;
+
+const EXT_FULL_SCREEN_EXCLUSIVE_SPEC_VERSION = 4;
+
+const EXT_FULL_SCREEN_EXCLUSIVE_EXTENSION_NAME = "VK_EXT_full_screen_exclusive";
+
+const KHR_XCB_SURFACE @if($defined(env::VK_USE_PLATFORM_XCB_KHR) &&& env::VK_USE_PLATFORM_XCB_KHR) = 1;
+
+const KHR_XCB_SURFACE_SPEC_VERSION @if($defined(env::VK_USE_PLATFORM_XCB_KHR) &&& env::VK_USE_PLATFORM_XCB_KHR) = 6;
+
+const KHR_XCB_SURFACE_EXTENSION_NAME @if($defined(env::VK_USE_PLATFORM_XCB_KHR) &&& env::VK_USE_PLATFORM_XCB_KHR) = "VK_KHR_xcb_surface";
+
+const KHR_XLIB_SURFACE @if($defined(env::VK_USE_PLATFORM_XLIB_KHR) &&& env::VK_USE_PLATFORM_XLIB_KHR) = 1;
+
+const KHR_XLIB_SURFACE_SPEC_VERSION @if($defined(env::VK_USE_PLATFORM_XLIB_KHR) &&& env::VK_USE_PLATFORM_XLIB_KHR) = 6;
+
+const KHR_XLIB_SURFACE_EXTENSION_NAME @if($defined(env::VK_USE_PLATFORM_XLIB_KHR) &&& env::VK_USE_PLATFORM_XLIB_KHR) = "VK_KHR_xlib_surface";
+
+const EXT_DIRECTFB_SURFACE @if($defined(env::VK_USE_PLATFORM_DIRECTFB_EXT) &&& env::VK_USE_PLATFORM_DIRECTFB_EXT) = 1;
+
+const EXT_DIRECTFB_SURFACE_SPEC_VERSION @if($defined(env::VK_USE_PLATFORM_DIRECTFB_EXT) &&& env::VK_USE_PLATFORM_DIRECTFB_EXT) = 1;
+
+const EXT_DIRECTFB_SURFACE_EXTENSION_NAME @if($defined(env::VK_USE_PLATFORM_DIRECTFB_EXT) &&& env::VK_USE_PLATFORM_DIRECTFB_EXT) = "VK_EXT_directfb_surface";
+
+const GGP_STREAM_DESCRIPTOR_SURFACE @if($defined(env::VK_USE_PLATFORM_GGP) &&& env::VK_USE_PLATFORM_GGP) = 1;
+
+const GGP_STREAM_DESCRIPTOR_SURFACE_SPEC_VERSION @if($defined(env::VK_USE_PLATFORM_GGP) &&& env::VK_USE_PLATFORM_GGP) = 1;
+
+const GGP_STREAM_DESCRIPTOR_SURFACE_EXTENSION_NAME @if($defined(env::VK_USE_PLATFORM_GGP) &&& env::VK_USE_PLATFORM_GGP) = "VK_GGP_stream_descriptor_surface";
+
+const GGP_FRAME_TOKEN @if($defined(env::VK_USE_PLATFORM_GGP) &&& env::VK_USE_PLATFORM_GGP) = 1;
+
+const GGP_FRAME_TOKEN_SPEC_VERSION @if($defined(env::VK_USE_PLATFORM_GGP) &&& env::VK_USE_PLATFORM_GGP) = 1;
+
+const GGP_FRAME_TOKEN_EXTENSION_NAME @if($defined(env::VK_USE_PLATFORM_GGP) &&& env::VK_USE_PLATFORM_GGP) = "VK_GGP_frame_token";
+
+const QNX_SCREEN_SURFACE @if($defined(env::VK_USE_PLATFORM_SCREEN_QNX) &&& env::VK_USE_PLATFORM_SCREEN_QNX) = 1;
+
+const QNX_SCREEN_SURFACE_SPEC_VERSION @if($defined(env::VK_USE_PLATFORM_SCREEN_QNX) &&& env::VK_USE_PLATFORM_SCREEN_QNX) = 1;
+
+const QNX_SCREEN_SURFACE_EXTENSION_NAME @if($defined(env::VK_USE_PLATFORM_SCREEN_QNX) &&& env::VK_USE_PLATFORM_SCREEN_QNX) = "VK_QNX_screen_surface";
 
 const KHR_VIDEO_QUEUE = 1;
 
@@ -16360,16 +16468,16 @@ struct VkPhysicalDeviceRayQueryFeaturesKHR {
 
 typedef ANativeWindow = void;
 
-alias VkAndroidSurfaceCreateFlagsKHR = VkFlags;
+alias VkAndroidSurfaceCreateFlagsKHR @if($defined(env::VK_USE_PLATFORM_ANDROID_KHR) &&& env::VK_USE_PLATFORM_ANDROID_KHR) = VkFlags;
 
-struct VkAndroidSurfaceCreateInfoKHR {
+struct VkAndroidSurfaceCreateInfoKHR @if($defined(env::VK_USE_PLATFORM_ANDROID_KHR) &&& env::VK_USE_PLATFORM_ANDROID_KHR) {
   VkStructureType sType;
   void * pNext;
   VkAndroidSurfaceCreateFlagsKHR flags;
   ANativeWindow * window;
 }
 
-alias PFN_vkCreateAndroidSurfaceKHR = fn VkResult(
+alias PFN_vkCreateAndroidSurfaceKHR @if($defined(env::VK_USE_PLATFORM_ANDROID_KHR) &&& env::VK_USE_PLATFORM_ANDROID_KHR) = fn VkResult(
   VkInstance instance, 
   VkAndroidSurfaceCreateInfoKHR * pCreateInfo, 
   VkAllocationCallbacks * pAllocator, 
@@ -16380,24 +16488,24 @@ fn VkResult createAndroidSurfaceKHR(
   VkAndroidSurfaceCreateInfoKHR * pCreateInfo, 
   VkAllocationCallbacks * pAllocator, 
   VkSurfaceKHR * pSurface)
-@extern("vkCreateAndroidSurfaceKHR");
+@extern("vkCreateAndroidSurfaceKHR") @if($defined(env::VK_USE_PLATFORM_ANDROID_KHR) &&& env::VK_USE_PLATFORM_ANDROID_KHR);
 
 typedef AHardwareBuffer = void;
 
-struct VkAndroidHardwareBufferUsageANDROID {
+struct VkAndroidHardwareBufferUsageANDROID @if($defined(env::VK_USE_PLATFORM_ANDROID_KHR) &&& env::VK_USE_PLATFORM_ANDROID_KHR) {
   VkStructureType sType;
   void * pNext;
   ulong androidHardwareBufferUsage;
 }
 
-struct VkAndroidHardwareBufferPropertiesANDROID {
+struct VkAndroidHardwareBufferPropertiesANDROID @if($defined(env::VK_USE_PLATFORM_ANDROID_KHR) &&& env::VK_USE_PLATFORM_ANDROID_KHR) {
   VkStructureType sType;
   void * pNext;
   VkDeviceSize allocationSize;
   uint memoryTypeBits;
 }
 
-struct VkAndroidHardwareBufferFormatPropertiesANDROID {
+struct VkAndroidHardwareBufferFormatPropertiesANDROID @if($defined(env::VK_USE_PLATFORM_ANDROID_KHR) &&& env::VK_USE_PLATFORM_ANDROID_KHR) {
   VkStructureType sType;
   void * pNext;
   VkFormat format;
@@ -16410,13 +16518,13 @@ struct VkAndroidHardwareBufferFormatPropertiesANDROID {
   VkChromaLocation suggestedYChromaOffset;
 }
 
-struct VkImportAndroidHardwareBufferInfoANDROID {
+struct VkImportAndroidHardwareBufferInfoANDROID @if($defined(env::VK_USE_PLATFORM_ANDROID_KHR) &&& env::VK_USE_PLATFORM_ANDROID_KHR) {
   VkStructureType sType;
   void * pNext;
   AHardwareBuffer * buffer;
 }
 
-struct VkMemoryGetAndroidHardwareBufferInfoANDROID {
+struct VkMemoryGetAndroidHardwareBufferInfoANDROID @if($defined(env::VK_USE_PLATFORM_ANDROID_KHR) &&& env::VK_USE_PLATFORM_ANDROID_KHR) {
   VkStructureType sType;
   void * pNext;
   VkDeviceMemory memory;
@@ -16428,7 +16536,7 @@ struct VkExternalFormatANDROID {
   ulong externalFormat;
 }
 
-struct VkAndroidHardwareBufferFormatProperties2ANDROID {
+struct VkAndroidHardwareBufferFormatProperties2ANDROID @if($defined(env::VK_USE_PLATFORM_ANDROID_KHR) &&& env::VK_USE_PLATFORM_ANDROID_KHR) {
   VkStructureType sType;
   void * pNext;
   VkFormat format;
@@ -16441,12 +16549,12 @@ struct VkAndroidHardwareBufferFormatProperties2ANDROID {
   VkChromaLocation suggestedYChromaOffset;
 }
 
-alias PFN_vkGetAndroidHardwareBufferPropertiesANDROID = fn VkResult(
+alias PFN_vkGetAndroidHardwareBufferPropertiesANDROID @if($defined(env::VK_USE_PLATFORM_ANDROID_KHR) &&& env::VK_USE_PLATFORM_ANDROID_KHR) = fn VkResult(
   VkDevice device, 
   AHardwareBuffer * buffer, 
   VkAndroidHardwareBufferPropertiesANDROID * pProperties);
 
-alias PFN_vkGetMemoryAndroidHardwareBufferANDROID = fn VkResult(
+alias PFN_vkGetMemoryAndroidHardwareBufferANDROID @if($defined(env::VK_USE_PLATFORM_ANDROID_KHR) &&& env::VK_USE_PLATFORM_ANDROID_KHR) = fn VkResult(
   VkDevice device, 
   VkMemoryGetAndroidHardwareBufferInfoANDROID * pInfo, 
   AHardwareBuffer ** pBuffer);
@@ -16455,24 +16563,286 @@ fn VkResult getAndroidHardwareBufferPropertiesANDROID(
   VkDevice device, 
   AHardwareBuffer * buffer, 
   VkAndroidHardwareBufferPropertiesANDROID * pProperties)
-@extern("vkGetAndroidHardwareBufferPropertiesANDROID");
+@extern("vkGetAndroidHardwareBufferPropertiesANDROID") @if($defined(env::VK_USE_PLATFORM_ANDROID_KHR) &&& env::VK_USE_PLATFORM_ANDROID_KHR);
 
 fn VkResult getMemoryAndroidHardwareBufferANDROID(
   VkDevice device, 
   VkMemoryGetAndroidHardwareBufferInfoANDROID * pInfo, 
   AHardwareBuffer ** pBuffer)
-@extern("vkGetMemoryAndroidHardwareBufferANDROID");
+@extern("vkGetMemoryAndroidHardwareBufferANDROID") @if($defined(env::VK_USE_PLATFORM_ANDROID_KHR) &&& env::VK_USE_PLATFORM_ANDROID_KHR);
 
-alias VkIOSSurfaceCreateFlagsMVK = VkFlags;
+alias VkImagePipeSurfaceCreateFlagsFUCHSIA @if($defined(env::VK_USE_PLATFORM_FUCHSIA) &&& env::VK_USE_PLATFORM_FUCHSIA) = VkFlags;
 
-struct VkIOSSurfaceCreateInfoMVK {
+struct VkImagePipeSurfaceCreateInfoFUCHSIA @if($defined(env::VK_USE_PLATFORM_FUCHSIA) &&& env::VK_USE_PLATFORM_FUCHSIA) {
+  VkStructureType sType;
+  void * pNext;
+  VkImagePipeSurfaceCreateFlagsFUCHSIA flags;
+  Zx_handle_t imagePipeHandle;
+}
+
+alias PFN_vkCreateImagePipeSurfaceFUCHSIA @if($defined(env::VK_USE_PLATFORM_FUCHSIA) &&& env::VK_USE_PLATFORM_FUCHSIA) = fn VkResult(
+  VkInstance instance, 
+  VkImagePipeSurfaceCreateInfoFUCHSIA * pCreateInfo, 
+  VkAllocationCallbacks * pAllocator, 
+  VkSurfaceKHR * pSurface);
+
+fn VkResult createImagePipeSurfaceFUCHSIA(
+  VkInstance instance, 
+  VkImagePipeSurfaceCreateInfoFUCHSIA * pCreateInfo, 
+  VkAllocationCallbacks * pAllocator, 
+  VkSurfaceKHR * pSurface)
+@extern("vkCreateImagePipeSurfaceFUCHSIA") @if($defined(env::VK_USE_PLATFORM_FUCHSIA) &&& env::VK_USE_PLATFORM_FUCHSIA);
+
+struct VkImportMemoryZirconHandleInfoFUCHSIA @if($defined(env::VK_USE_PLATFORM_FUCHSIA) &&& env::VK_USE_PLATFORM_FUCHSIA) {
+  VkStructureType sType;
+  void * pNext;
+  VkExternalMemoryHandleTypeFlagBits handleType;
+  Zx_handle_t handle;
+}
+
+struct VkMemoryZirconHandlePropertiesFUCHSIA @if($defined(env::VK_USE_PLATFORM_FUCHSIA) &&& env::VK_USE_PLATFORM_FUCHSIA) {
+  VkStructureType sType;
+  void * pNext;
+  uint memoryTypeBits;
+}
+
+struct VkMemoryGetZirconHandleInfoFUCHSIA @if($defined(env::VK_USE_PLATFORM_FUCHSIA) &&& env::VK_USE_PLATFORM_FUCHSIA) {
+  VkStructureType sType;
+  void * pNext;
+  VkDeviceMemory memory;
+  VkExternalMemoryHandleTypeFlagBits handleType;
+}
+
+alias PFN_vkGetMemoryZirconHandleFUCHSIA @if($defined(env::VK_USE_PLATFORM_FUCHSIA) &&& env::VK_USE_PLATFORM_FUCHSIA) = fn VkResult(
+  VkDevice device, 
+  VkMemoryGetZirconHandleInfoFUCHSIA * pGetZirconHandleInfo, 
+  Zx_handle_t * pZirconHandle);
+
+alias PFN_vkGetMemoryZirconHandlePropertiesFUCHSIA @if($defined(env::VK_USE_PLATFORM_FUCHSIA) &&& env::VK_USE_PLATFORM_FUCHSIA) = fn VkResult(
+  VkDevice device, 
+  VkExternalMemoryHandleTypeFlagBits handleType, 
+  Zx_handle_t zirconHandle, 
+  VkMemoryZirconHandlePropertiesFUCHSIA * pMemoryZirconHandleProperties);
+
+fn VkResult getMemoryZirconHandleFUCHSIA(
+  VkDevice device, 
+  VkMemoryGetZirconHandleInfoFUCHSIA * pGetZirconHandleInfo, 
+  Zx_handle_t * pZirconHandle)
+@extern("vkGetMemoryZirconHandleFUCHSIA") @if($defined(env::VK_USE_PLATFORM_FUCHSIA) &&& env::VK_USE_PLATFORM_FUCHSIA);
+
+fn VkResult getMemoryZirconHandlePropertiesFUCHSIA(
+  VkDevice device, 
+  VkExternalMemoryHandleTypeFlagBits handleType, 
+  Zx_handle_t zirconHandle, 
+  VkMemoryZirconHandlePropertiesFUCHSIA * pMemoryZirconHandleProperties)
+@extern("vkGetMemoryZirconHandlePropertiesFUCHSIA") @if($defined(env::VK_USE_PLATFORM_FUCHSIA) &&& env::VK_USE_PLATFORM_FUCHSIA);
+
+struct VkImportSemaphoreZirconHandleInfoFUCHSIA @if($defined(env::VK_USE_PLATFORM_FUCHSIA) &&& env::VK_USE_PLATFORM_FUCHSIA) {
+  VkStructureType sType;
+  void * pNext;
+  VkSemaphore semaphore;
+  VkSemaphoreImportFlags flags;
+  VkExternalSemaphoreHandleTypeFlagBits handleType;
+  Zx_handle_t zirconHandle;
+}
+
+struct VkSemaphoreGetZirconHandleInfoFUCHSIA @if($defined(env::VK_USE_PLATFORM_FUCHSIA) &&& env::VK_USE_PLATFORM_FUCHSIA) {
+  VkStructureType sType;
+  void * pNext;
+  VkSemaphore semaphore;
+  VkExternalSemaphoreHandleTypeFlagBits handleType;
+}
+
+alias PFN_vkImportSemaphoreZirconHandleFUCHSIA @if($defined(env::VK_USE_PLATFORM_FUCHSIA) &&& env::VK_USE_PLATFORM_FUCHSIA) = fn VkResult(
+  VkDevice device, 
+  VkImportSemaphoreZirconHandleInfoFUCHSIA * pImportSemaphoreZirconHandleInfo);
+
+alias PFN_vkGetSemaphoreZirconHandleFUCHSIA @if($defined(env::VK_USE_PLATFORM_FUCHSIA) &&& env::VK_USE_PLATFORM_FUCHSIA) = fn VkResult(
+  VkDevice device, 
+  VkSemaphoreGetZirconHandleInfoFUCHSIA * pGetZirconHandleInfo, 
+  Zx_handle_t * pZirconHandle);
+
+fn VkResult importSemaphoreZirconHandleFUCHSIA(
+  VkDevice device, 
+  VkImportSemaphoreZirconHandleInfoFUCHSIA * pImportSemaphoreZirconHandleInfo)
+@extern("vkImportSemaphoreZirconHandleFUCHSIA") @if($defined(env::VK_USE_PLATFORM_FUCHSIA) &&& env::VK_USE_PLATFORM_FUCHSIA);
+
+fn VkResult getSemaphoreZirconHandleFUCHSIA(
+  VkDevice device, 
+  VkSemaphoreGetZirconHandleInfoFUCHSIA * pGetZirconHandleInfo, 
+  Zx_handle_t * pZirconHandle)
+@extern("vkGetSemaphoreZirconHandleFUCHSIA") @if($defined(env::VK_USE_PLATFORM_FUCHSIA) &&& env::VK_USE_PLATFORM_FUCHSIA);
+
+typedef VkBufferCollectionFUCHSIA_T @if($defined(env::VK_USE_PLATFORM_FUCHSIA) &&& env::VK_USE_PLATFORM_FUCHSIA) = void;
+
+alias VkBufferCollectionFUCHSIA @if($defined(env::VK_USE_PLATFORM_FUCHSIA) &&& env::VK_USE_PLATFORM_FUCHSIA) = VkBufferCollectionFUCHSIA_T *;
+
+alias VkImageFormatConstraintsFlagsFUCHSIA @if($defined(env::VK_USE_PLATFORM_FUCHSIA) &&& env::VK_USE_PLATFORM_FUCHSIA) = VkFlags;
+
+typedef VkImageConstraintsInfoFlagBitsFUCHSIA @if($defined(env::VK_USE_PLATFORM_FUCHSIA) &&& env::VK_USE_PLATFORM_FUCHSIA) = inline CUInt;
+const VkImageConstraintsInfoFlagBitsFUCHSIA IMAGE_CONSTRAINTS_INFO_CPU_READ_RARELY_FUCHSIA @if($defined(env::VK_USE_PLATFORM_FUCHSIA) &&& env::VK_USE_PLATFORM_FUCHSIA) = 0x00000001;
+const VkImageConstraintsInfoFlagBitsFUCHSIA IMAGE_CONSTRAINTS_INFO_CPU_READ_OFTEN_FUCHSIA @if($defined(env::VK_USE_PLATFORM_FUCHSIA) &&& env::VK_USE_PLATFORM_FUCHSIA) = 0x00000002;
+const VkImageConstraintsInfoFlagBitsFUCHSIA IMAGE_CONSTRAINTS_INFO_CPU_WRITE_RARELY_FUCHSIA @if($defined(env::VK_USE_PLATFORM_FUCHSIA) &&& env::VK_USE_PLATFORM_FUCHSIA) = 0x00000004;
+const VkImageConstraintsInfoFlagBitsFUCHSIA IMAGE_CONSTRAINTS_INFO_CPU_WRITE_OFTEN_FUCHSIA @if($defined(env::VK_USE_PLATFORM_FUCHSIA) &&& env::VK_USE_PLATFORM_FUCHSIA) = 0x00000008;
+const VkImageConstraintsInfoFlagBitsFUCHSIA IMAGE_CONSTRAINTS_INFO_PROTECTED_OPTIONAL_FUCHSIA @if($defined(env::VK_USE_PLATFORM_FUCHSIA) &&& env::VK_USE_PLATFORM_FUCHSIA) = 0x00000010;
+const VkImageConstraintsInfoFlagBitsFUCHSIA IMAGE_CONSTRAINTS_INFO_FLAG_BITS_MAX_ENUM_FUCHSIA @if($defined(env::VK_USE_PLATFORM_FUCHSIA) &&& env::VK_USE_PLATFORM_FUCHSIA) = 0x7FFFFFFF;
+
+alias VkImageConstraintsInfoFlagsFUCHSIA @if($defined(env::VK_USE_PLATFORM_FUCHSIA) &&& env::VK_USE_PLATFORM_FUCHSIA) = VkFlags;
+
+struct VkBufferCollectionCreateInfoFUCHSIA @if($defined(env::VK_USE_PLATFORM_FUCHSIA) &&& env::VK_USE_PLATFORM_FUCHSIA) {
+  VkStructureType sType;
+  void * pNext;
+  Zx_handle_t collectionToken;
+}
+
+struct VkImportMemoryBufferCollectionFUCHSIA @if($defined(env::VK_USE_PLATFORM_FUCHSIA) &&& env::VK_USE_PLATFORM_FUCHSIA) {
+  VkStructureType sType;
+  void * pNext;
+  VkBufferCollectionFUCHSIA collection;
+  uint index;
+}
+
+struct VkBufferCollectionImageCreateInfoFUCHSIA @if($defined(env::VK_USE_PLATFORM_FUCHSIA) &&& env::VK_USE_PLATFORM_FUCHSIA) {
+  VkStructureType sType;
+  void * pNext;
+  VkBufferCollectionFUCHSIA collection;
+  uint index;
+}
+
+struct VkBufferCollectionConstraintsInfoFUCHSIA @if($defined(env::VK_USE_PLATFORM_FUCHSIA) &&& env::VK_USE_PLATFORM_FUCHSIA) {
+  VkStructureType sType;
+  void * pNext;
+  uint minBufferCount;
+  uint maxBufferCount;
+  uint minBufferCountForCamping;
+  uint minBufferCountForDedicatedSlack;
+  uint minBufferCountForSharedSlack;
+}
+
+struct VkBufferConstraintsInfoFUCHSIA @if($defined(env::VK_USE_PLATFORM_FUCHSIA) &&& env::VK_USE_PLATFORM_FUCHSIA) {
+  VkStructureType sType;
+  void * pNext;
+  VkBufferCreateInfo createInfo;
+  VkFormatFeatureFlags requiredFormatFeatures;
+  VkBufferCollectionConstraintsInfoFUCHSIA bufferCollectionConstraints;
+}
+
+struct VkBufferCollectionBufferCreateInfoFUCHSIA @if($defined(env::VK_USE_PLATFORM_FUCHSIA) &&& env::VK_USE_PLATFORM_FUCHSIA) {
+  VkStructureType sType;
+  void * pNext;
+  VkBufferCollectionFUCHSIA collection;
+  uint index;
+}
+
+struct VkSysmemColorSpaceFUCHSIA @if($defined(env::VK_USE_PLATFORM_FUCHSIA) &&& env::VK_USE_PLATFORM_FUCHSIA) {
+  VkStructureType sType;
+  void * pNext;
+  uint colorSpace;
+}
+
+struct VkBufferCollectionPropertiesFUCHSIA @if($defined(env::VK_USE_PLATFORM_FUCHSIA) &&& env::VK_USE_PLATFORM_FUCHSIA) {
+  VkStructureType sType;
+  void * pNext;
+  uint memoryTypeBits;
+  uint bufferCount;
+  uint createInfoIndex;
+  ulong sysmemPixelFormat;
+  VkFormatFeatureFlags formatFeatures;
+  VkSysmemColorSpaceFUCHSIA sysmemColorSpaceIndex;
+  VkComponentMapping samplerYcbcrConversionComponents;
+  VkSamplerYcbcrModelConversion suggestedYcbcrModel;
+  VkSamplerYcbcrRange suggestedYcbcrRange;
+  VkChromaLocation suggestedXChromaOffset;
+  VkChromaLocation suggestedYChromaOffset;
+}
+
+struct VkImageFormatConstraintsInfoFUCHSIA @if($defined(env::VK_USE_PLATFORM_FUCHSIA) &&& env::VK_USE_PLATFORM_FUCHSIA) {
+  VkStructureType sType;
+  void * pNext;
+  VkImageCreateInfo imageCreateInfo;
+  VkFormatFeatureFlags requiredFormatFeatures;
+  VkImageFormatConstraintsFlagsFUCHSIA flags;
+  ulong sysmemPixelFormat;
+  uint colorSpaceCount;
+  VkSysmemColorSpaceFUCHSIA * pColorSpaces;
+}
+
+struct VkImageConstraintsInfoFUCHSIA @if($defined(env::VK_USE_PLATFORM_FUCHSIA) &&& env::VK_USE_PLATFORM_FUCHSIA) {
+  VkStructureType sType;
+  void * pNext;
+  uint formatConstraintsCount;
+  VkImageFormatConstraintsInfoFUCHSIA * pFormatConstraints;
+  VkBufferCollectionConstraintsInfoFUCHSIA bufferCollectionConstraints;
+  VkImageConstraintsInfoFlagsFUCHSIA flags;
+}
+
+alias PFN_vkCreateBufferCollectionFUCHSIA @if($defined(env::VK_USE_PLATFORM_FUCHSIA) &&& env::VK_USE_PLATFORM_FUCHSIA) = fn VkResult(
+  VkDevice device, 
+  VkBufferCollectionCreateInfoFUCHSIA * pCreateInfo, 
+  VkAllocationCallbacks * pAllocator, 
+  VkBufferCollectionFUCHSIA * pCollection);
+
+alias PFN_vkSetBufferCollectionImageConstraintsFUCHSIA @if($defined(env::VK_USE_PLATFORM_FUCHSIA) &&& env::VK_USE_PLATFORM_FUCHSIA) = fn VkResult(
+  VkDevice device, 
+  VkBufferCollectionFUCHSIA collection, 
+  VkImageConstraintsInfoFUCHSIA * pImageConstraintsInfo);
+
+alias PFN_vkSetBufferCollectionBufferConstraintsFUCHSIA @if($defined(env::VK_USE_PLATFORM_FUCHSIA) &&& env::VK_USE_PLATFORM_FUCHSIA) = fn VkResult(
+  VkDevice device, 
+  VkBufferCollectionFUCHSIA collection, 
+  VkBufferConstraintsInfoFUCHSIA * pBufferConstraintsInfo);
+
+alias PFN_vkDestroyBufferCollectionFUCHSIA @if($defined(env::VK_USE_PLATFORM_FUCHSIA) &&& env::VK_USE_PLATFORM_FUCHSIA) = fn void(
+  VkDevice device, 
+  VkBufferCollectionFUCHSIA collection, 
+  VkAllocationCallbacks * pAllocator);
+
+alias PFN_vkGetBufferCollectionPropertiesFUCHSIA @if($defined(env::VK_USE_PLATFORM_FUCHSIA) &&& env::VK_USE_PLATFORM_FUCHSIA) = fn VkResult(
+  VkDevice device, 
+  VkBufferCollectionFUCHSIA collection, 
+  VkBufferCollectionPropertiesFUCHSIA * pProperties);
+
+fn VkResult createBufferCollectionFUCHSIA(
+  VkDevice device, 
+  VkBufferCollectionCreateInfoFUCHSIA * pCreateInfo, 
+  VkAllocationCallbacks * pAllocator, 
+  VkBufferCollectionFUCHSIA * pCollection)
+@extern("vkCreateBufferCollectionFUCHSIA") @if($defined(env::VK_USE_PLATFORM_FUCHSIA) &&& env::VK_USE_PLATFORM_FUCHSIA);
+
+fn VkResult setBufferCollectionImageConstraintsFUCHSIA(
+  VkDevice device, 
+  VkBufferCollectionFUCHSIA collection, 
+  VkImageConstraintsInfoFUCHSIA * pImageConstraintsInfo)
+@extern("vkSetBufferCollectionImageConstraintsFUCHSIA") @if($defined(env::VK_USE_PLATFORM_FUCHSIA) &&& env::VK_USE_PLATFORM_FUCHSIA);
+
+fn VkResult setBufferCollectionBufferConstraintsFUCHSIA(
+  VkDevice device, 
+  VkBufferCollectionFUCHSIA collection, 
+  VkBufferConstraintsInfoFUCHSIA * pBufferConstraintsInfo)
+@extern("vkSetBufferCollectionBufferConstraintsFUCHSIA") @if($defined(env::VK_USE_PLATFORM_FUCHSIA) &&& env::VK_USE_PLATFORM_FUCHSIA);
+
+fn void destroyBufferCollectionFUCHSIA(
+  VkDevice device, 
+  VkBufferCollectionFUCHSIA collection, 
+  VkAllocationCallbacks * pAllocator)
+@extern("vkDestroyBufferCollectionFUCHSIA") @if($defined(env::VK_USE_PLATFORM_FUCHSIA) &&& env::VK_USE_PLATFORM_FUCHSIA);
+
+fn VkResult getBufferCollectionPropertiesFUCHSIA(
+  VkDevice device, 
+  VkBufferCollectionFUCHSIA collection, 
+  VkBufferCollectionPropertiesFUCHSIA * pProperties)
+@extern("vkGetBufferCollectionPropertiesFUCHSIA") @if($defined(env::VK_USE_PLATFORM_FUCHSIA) &&& env::VK_USE_PLATFORM_FUCHSIA);
+
+alias VkIOSSurfaceCreateFlagsMVK @if($defined(env::VK_USE_PLATFORM_IOS_MVK) &&& env::VK_USE_PLATFORM_IOS_MVK) = VkFlags;
+
+struct VkIOSSurfaceCreateInfoMVK @if($defined(env::VK_USE_PLATFORM_IOS_MVK) &&& env::VK_USE_PLATFORM_IOS_MVK) {
   VkStructureType sType;
   void * pNext;
   VkIOSSurfaceCreateFlagsMVK flags;
   void * pView;
 }
 
-alias PFN_vkCreateIOSSurfaceMVK = fn VkResult(
+alias PFN_vkCreateIOSSurfaceMVK @if($defined(env::VK_USE_PLATFORM_IOS_MVK) &&& env::VK_USE_PLATFORM_IOS_MVK) = fn VkResult(
   VkInstance instance, 
   VkIOSSurfaceCreateInfoMVK * pCreateInfo, 
   VkAllocationCallbacks * pAllocator, 
@@ -16483,18 +16853,18 @@ fn VkResult createIOSSurfaceMVK(
   VkIOSSurfaceCreateInfoMVK * pCreateInfo, 
   VkAllocationCallbacks * pAllocator, 
   VkSurfaceKHR * pSurface)
-@extern("vkCreateIOSSurfaceMVK");
+@extern("vkCreateIOSSurfaceMVK") @if($defined(env::VK_USE_PLATFORM_IOS_MVK) &&& env::VK_USE_PLATFORM_IOS_MVK);
 
-alias VkMacOSSurfaceCreateFlagsMVK = VkFlags;
+alias VkMacOSSurfaceCreateFlagsMVK @if($defined(env::VK_USE_PLATFORM_MACOS_MVK) &&& env::VK_USE_PLATFORM_MACOS_MVK) = VkFlags;
 
-struct VkMacOSSurfaceCreateInfoMVK {
+struct VkMacOSSurfaceCreateInfoMVK @if($defined(env::VK_USE_PLATFORM_MACOS_MVK) &&& env::VK_USE_PLATFORM_MACOS_MVK) {
   VkStructureType sType;
   void * pNext;
   VkMacOSSurfaceCreateFlagsMVK flags;
   void * pView;
 }
 
-alias PFN_vkCreateMacOSSurfaceMVK = fn VkResult(
+alias PFN_vkCreateMacOSSurfaceMVK @if($defined(env::VK_USE_PLATFORM_MACOS_MVK) &&& env::VK_USE_PLATFORM_MACOS_MVK) = fn VkResult(
   VkInstance instance, 
   VkMacOSSurfaceCreateInfoMVK * pCreateInfo, 
   VkAllocationCallbacks * pAllocator, 
@@ -16505,20 +16875,20 @@ fn VkResult createMacOSSurfaceMVK(
   VkMacOSSurfaceCreateInfoMVK * pCreateInfo, 
   VkAllocationCallbacks * pAllocator, 
   VkSurfaceKHR * pSurface)
-@extern("vkCreateMacOSSurfaceMVK");
+@extern("vkCreateMacOSSurfaceMVK") @if($defined(env::VK_USE_PLATFORM_MACOS_MVK) &&& env::VK_USE_PLATFORM_MACOS_MVK);
 
-alias CAMetalLayer = void;
+alias CAMetalLayer @if($defined(env::VK_USE_PLATFORM_METAL_EXT) &&& env::VK_USE_PLATFORM_METAL_EXT) = void;
 
-alias VkMetalSurfaceCreateFlagsEXT = VkFlags;
+alias VkMetalSurfaceCreateFlagsEXT @if($defined(env::VK_USE_PLATFORM_METAL_EXT) &&& env::VK_USE_PLATFORM_METAL_EXT) = VkFlags;
 
-struct VkMetalSurfaceCreateInfoEXT {
+struct VkMetalSurfaceCreateInfoEXT @if($defined(env::VK_USE_PLATFORM_METAL_EXT) &&& env::VK_USE_PLATFORM_METAL_EXT) {
   VkStructureType sType;
   void * pNext;
   VkMetalSurfaceCreateFlagsEXT flags;
   CAMetalLayer * pLayer;
 }
 
-alias PFN_vkCreateMetalSurfaceEXT = fn VkResult(
+alias PFN_vkCreateMetalSurfaceEXT @if($defined(env::VK_USE_PLATFORM_METAL_EXT) &&& env::VK_USE_PLATFORM_METAL_EXT) = fn VkResult(
   VkInstance instance, 
   VkMetalSurfaceCreateInfoEXT * pCreateInfo, 
   VkAllocationCallbacks * pAllocator, 
@@ -16529,18 +16899,18 @@ fn VkResult createMetalSurfaceEXT(
   VkMetalSurfaceCreateInfoEXT * pCreateInfo, 
   VkAllocationCallbacks * pAllocator, 
   VkSurfaceKHR * pSurface)
-@extern("vkCreateMetalSurfaceEXT");
+@extern("vkCreateMetalSurfaceEXT") @if($defined(env::VK_USE_PLATFORM_METAL_EXT) &&& env::VK_USE_PLATFORM_METAL_EXT);
 
-alias VkViSurfaceCreateFlagsNN = VkFlags;
+alias VkViSurfaceCreateFlagsNN @if($defined(env::VK_USE_PLATFORM_VI_NN) &&& env::VK_USE_PLATFORM_VI_NN) = VkFlags;
 
-struct VkViSurfaceCreateInfoNN {
+struct VkViSurfaceCreateInfoNN @if($defined(env::VK_USE_PLATFORM_VI_NN) &&& env::VK_USE_PLATFORM_VI_NN) {
   VkStructureType sType;
   void * pNext;
   VkViSurfaceCreateFlagsNN flags;
   void * window;
 }
 
-alias PFN_vkCreateViSurfaceNN = fn VkResult(
+alias PFN_vkCreateViSurfaceNN @if($defined(env::VK_USE_PLATFORM_VI_NN) &&& env::VK_USE_PLATFORM_VI_NN) = fn VkResult(
   VkInstance instance, 
   VkViSurfaceCreateInfoNN * pCreateInfo, 
   VkAllocationCallbacks * pAllocator, 
@@ -16551,17 +16921,13 @@ fn VkResult createViSurfaceNN(
   VkViSurfaceCreateInfoNN * pCreateInfo, 
   VkAllocationCallbacks * pAllocator, 
   VkSurfaceKHR * pSurface)
-@extern("vkCreateViSurfaceNN");
+@extern("vkCreateViSurfaceNN") @if($defined(env::VK_USE_PLATFORM_VI_NN) &&& env::VK_USE_PLATFORM_VI_NN);
 
-typedef WlProxy = void;
-
-typedef WlDisplay = void;
-
-alias VkWaylandSurfaceCreateFlagsKHR = VkFlags;
+alias VkWaylandSurfaceCreateFlagsKHR @if($defined(env::VK_USE_PLATFORM_WAYLAND_KHR) &&& env::VK_USE_PLATFORM_WAYLAND_KHR) = VkFlags;
 
 typedef WlSurface = void;
 
-struct VkWaylandSurfaceCreateInfoKHR {
+struct VkWaylandSurfaceCreateInfoKHR @if($defined(env::VK_USE_PLATFORM_WAYLAND_KHR) &&& env::VK_USE_PLATFORM_WAYLAND_KHR) {
   VkStructureType sType;
   void * pNext;
   VkWaylandSurfaceCreateFlagsKHR flags;
@@ -16569,13 +16935,13 @@ struct VkWaylandSurfaceCreateInfoKHR {
   WlSurface * surface;
 }
 
-alias PFN_vkCreateWaylandSurfaceKHR = fn VkResult(
+alias PFN_vkCreateWaylandSurfaceKHR @if($defined(env::VK_USE_PLATFORM_WAYLAND_KHR) &&& env::VK_USE_PLATFORM_WAYLAND_KHR) = fn VkResult(
   VkInstance instance, 
   VkWaylandSurfaceCreateInfoKHR * pCreateInfo, 
   VkAllocationCallbacks * pAllocator, 
   VkSurfaceKHR * pSurface);
 
-alias PFN_vkGetPhysicalDeviceWaylandPresentationSupportKHR = fn VkBool32(
+alias PFN_vkGetPhysicalDeviceWaylandPresentationSupportKHR @if($defined(env::VK_USE_PLATFORM_WAYLAND_KHR) &&& env::VK_USE_PLATFORM_WAYLAND_KHR) = fn VkBool32(
   VkPhysicalDevice physicalDevice, 
   uint queueFamilyIndex, 
   WlDisplay * display);
@@ -16585,13 +16951,491 @@ fn VkResult createWaylandSurfaceKHR(
   VkWaylandSurfaceCreateInfoKHR * pCreateInfo, 
   VkAllocationCallbacks * pAllocator, 
   VkSurfaceKHR * pSurface)
-@extern("vkCreateWaylandSurfaceKHR");
+@extern("vkCreateWaylandSurfaceKHR") @if($defined(env::VK_USE_PLATFORM_WAYLAND_KHR) &&& env::VK_USE_PLATFORM_WAYLAND_KHR);
 
 fn VkBool32 getPhysicalDeviceWaylandPresentationSupportKHR(
   VkPhysicalDevice physicalDevice, 
   uint queueFamilyIndex, 
   WlDisplay * display)
-@extern("vkGetPhysicalDeviceWaylandPresentationSupportKHR");
+@extern("vkGetPhysicalDeviceWaylandPresentationSupportKHR") @if($defined(env::VK_USE_PLATFORM_WAYLAND_KHR) &&& env::VK_USE_PLATFORM_WAYLAND_KHR);
+
+alias VkWin32SurfaceCreateFlagsKHR @if($defined(env::VK_USE_PLATFORM_WIN32_KHR) &&& env::VK_USE_PLATFORM_WIN32_KHR) = VkFlags;
+
+struct VkWin32SurfaceCreateInfoKHR @if($defined(env::VK_USE_PLATFORM_WIN32_KHR) &&& env::VK_USE_PLATFORM_WIN32_KHR) {
+  VkStructureType sType;
+  void * pNext;
+  VkWin32SurfaceCreateFlagsKHR flags;
+  Hinstance hinstance;
+  Hwnd hwnd;
+}
+
+alias PFN_vkCreateWin32SurfaceKHR @if($defined(env::VK_USE_PLATFORM_WIN32_KHR) &&& env::VK_USE_PLATFORM_WIN32_KHR) = fn VkResult(
+  VkInstance instance, 
+  VkWin32SurfaceCreateInfoKHR * pCreateInfo, 
+  VkAllocationCallbacks * pAllocator, 
+  VkSurfaceKHR * pSurface);
+
+alias PFN_vkGetPhysicalDeviceWin32PresentationSupportKHR @if($defined(env::VK_USE_PLATFORM_WIN32_KHR) &&& env::VK_USE_PLATFORM_WIN32_KHR) = fn VkBool32(
+  VkPhysicalDevice physicalDevice, 
+  uint queueFamilyIndex);
+
+fn VkResult createWin32SurfaceKHR(
+  VkInstance instance, 
+  VkWin32SurfaceCreateInfoKHR * pCreateInfo, 
+  VkAllocationCallbacks * pAllocator, 
+  VkSurfaceKHR * pSurface)
+@extern("vkCreateWin32SurfaceKHR") @if($defined(env::VK_USE_PLATFORM_WIN32_KHR) &&& env::VK_USE_PLATFORM_WIN32_KHR);
+
+fn VkBool32 getPhysicalDeviceWin32PresentationSupportKHR(
+  VkPhysicalDevice physicalDevice, 
+  uint queueFamilyIndex)
+@extern("vkGetPhysicalDeviceWin32PresentationSupportKHR") @if($defined(env::VK_USE_PLATFORM_WIN32_KHR) &&& env::VK_USE_PLATFORM_WIN32_KHR);
+
+struct VkImportMemoryWin32HandleInfoKHR @if($defined(env::VK_USE_PLATFORM_WIN32_KHR) &&& env::VK_USE_PLATFORM_WIN32_KHR) {
+  VkStructureType sType;
+  void * pNext;
+  VkExternalMemoryHandleTypeFlagBits handleType;
+  Handle handle;
+  Lpcwstr name;
+}
+
+struct VkExportMemoryWin32HandleInfoKHR @if($defined(env::VK_USE_PLATFORM_WIN32_KHR) &&& env::VK_USE_PLATFORM_WIN32_KHR) {
+  VkStructureType sType;
+  void * pNext;
+  SecurityAttributes * pAttributes;
+  Dword dwAccess;
+  Lpcwstr name;
+}
+
+struct VkMemoryWin32HandlePropertiesKHR @if($defined(env::VK_USE_PLATFORM_WIN32_KHR) &&& env::VK_USE_PLATFORM_WIN32_KHR) {
+  VkStructureType sType;
+  void * pNext;
+  uint memoryTypeBits;
+}
+
+struct VkMemoryGetWin32HandleInfoKHR @if($defined(env::VK_USE_PLATFORM_WIN32_KHR) &&& env::VK_USE_PLATFORM_WIN32_KHR) {
+  VkStructureType sType;
+  void * pNext;
+  VkDeviceMemory memory;
+  VkExternalMemoryHandleTypeFlagBits handleType;
+}
+
+alias PFN_vkGetMemoryWin32HandleKHR @if($defined(env::VK_USE_PLATFORM_WIN32_KHR) &&& env::VK_USE_PLATFORM_WIN32_KHR) = fn VkResult(
+  VkDevice device, 
+  VkMemoryGetWin32HandleInfoKHR * pGetWin32HandleInfo, 
+  Handle * pHandle);
+
+alias PFN_vkGetMemoryWin32HandlePropertiesKHR @if($defined(env::VK_USE_PLATFORM_WIN32_KHR) &&& env::VK_USE_PLATFORM_WIN32_KHR) = fn VkResult(
+  VkDevice device, 
+  VkExternalMemoryHandleTypeFlagBits handleType, 
+  Handle handle, 
+  VkMemoryWin32HandlePropertiesKHR * pMemoryWin32HandleProperties);
+
+fn VkResult getMemoryWin32HandleKHR(
+  VkDevice device, 
+  VkMemoryGetWin32HandleInfoKHR * pGetWin32HandleInfo, 
+  Handle * pHandle)
+@extern("vkGetMemoryWin32HandleKHR") @if($defined(env::VK_USE_PLATFORM_WIN32_KHR) &&& env::VK_USE_PLATFORM_WIN32_KHR);
+
+fn VkResult getMemoryWin32HandlePropertiesKHR(
+  VkDevice device, 
+  VkExternalMemoryHandleTypeFlagBits handleType, 
+  Handle handle, 
+  VkMemoryWin32HandlePropertiesKHR * pMemoryWin32HandleProperties)
+@extern("vkGetMemoryWin32HandlePropertiesKHR") @if($defined(env::VK_USE_PLATFORM_WIN32_KHR) &&& env::VK_USE_PLATFORM_WIN32_KHR);
+
+struct VkWin32KeyedMutexAcquireReleaseInfoKHR @if($defined(env::VK_USE_PLATFORM_WIN32_KHR) &&& env::VK_USE_PLATFORM_WIN32_KHR) {
+  VkStructureType sType;
+  void * pNext;
+  uint acquireCount;
+  VkDeviceMemory * pAcquireSyncs;
+  ulong * pAcquireKeys;
+  uint * pAcquireTimeouts;
+  uint releaseCount;
+  VkDeviceMemory * pReleaseSyncs;
+  ulong * pReleaseKeys;
+}
+
+struct VkImportSemaphoreWin32HandleInfoKHR @if($defined(env::VK_USE_PLATFORM_WIN32_KHR) &&& env::VK_USE_PLATFORM_WIN32_KHR) {
+  VkStructureType sType;
+  void * pNext;
+  VkSemaphore semaphore;
+  VkSemaphoreImportFlags flags;
+  VkExternalSemaphoreHandleTypeFlagBits handleType;
+  Handle handle;
+  Lpcwstr name;
+}
+
+struct VkExportSemaphoreWin32HandleInfoKHR @if($defined(env::VK_USE_PLATFORM_WIN32_KHR) &&& env::VK_USE_PLATFORM_WIN32_KHR) {
+  VkStructureType sType;
+  void * pNext;
+  SecurityAttributes * pAttributes;
+  Dword dwAccess;
+  Lpcwstr name;
+}
+
+struct VkD3D12FenceSubmitInfoKHR {
+  VkStructureType sType;
+  void * pNext;
+  uint waitSemaphoreValuesCount;
+  ulong * pWaitSemaphoreValues;
+  uint signalSemaphoreValuesCount;
+  ulong * pSignalSemaphoreValues;
+}
+
+struct VkSemaphoreGetWin32HandleInfoKHR @if($defined(env::VK_USE_PLATFORM_WIN32_KHR) &&& env::VK_USE_PLATFORM_WIN32_KHR) {
+  VkStructureType sType;
+  void * pNext;
+  VkSemaphore semaphore;
+  VkExternalSemaphoreHandleTypeFlagBits handleType;
+}
+
+alias PFN_vkImportSemaphoreWin32HandleKHR @if($defined(env::VK_USE_PLATFORM_WIN32_KHR) &&& env::VK_USE_PLATFORM_WIN32_KHR) = fn VkResult(
+  VkDevice device, 
+  VkImportSemaphoreWin32HandleInfoKHR * pImportSemaphoreWin32HandleInfo);
+
+alias PFN_vkGetSemaphoreWin32HandleKHR @if($defined(env::VK_USE_PLATFORM_WIN32_KHR) &&& env::VK_USE_PLATFORM_WIN32_KHR) = fn VkResult(
+  VkDevice device, 
+  VkSemaphoreGetWin32HandleInfoKHR * pGetWin32HandleInfo, 
+  Handle * pHandle);
+
+fn VkResult importSemaphoreWin32HandleKHR(
+  VkDevice device, 
+  VkImportSemaphoreWin32HandleInfoKHR * pImportSemaphoreWin32HandleInfo)
+@extern("vkImportSemaphoreWin32HandleKHR") @if($defined(env::VK_USE_PLATFORM_WIN32_KHR) &&& env::VK_USE_PLATFORM_WIN32_KHR);
+
+fn VkResult getSemaphoreWin32HandleKHR(
+  VkDevice device, 
+  VkSemaphoreGetWin32HandleInfoKHR * pGetWin32HandleInfo, 
+  Handle * pHandle)
+@extern("vkGetSemaphoreWin32HandleKHR") @if($defined(env::VK_USE_PLATFORM_WIN32_KHR) &&& env::VK_USE_PLATFORM_WIN32_KHR);
+
+struct VkImportFenceWin32HandleInfoKHR @if($defined(env::VK_USE_PLATFORM_WIN32_KHR) &&& env::VK_USE_PLATFORM_WIN32_KHR) {
+  VkStructureType sType;
+  void * pNext;
+  VkFence fence;
+  VkFenceImportFlags flags;
+  VkExternalFenceHandleTypeFlagBits handleType;
+  Handle handle;
+  Lpcwstr name;
+}
+
+struct VkExportFenceWin32HandleInfoKHR @if($defined(env::VK_USE_PLATFORM_WIN32_KHR) &&& env::VK_USE_PLATFORM_WIN32_KHR) {
+  VkStructureType sType;
+  void * pNext;
+  SecurityAttributes * pAttributes;
+  Dword dwAccess;
+  Lpcwstr name;
+}
+
+struct VkFenceGetWin32HandleInfoKHR @if($defined(env::VK_USE_PLATFORM_WIN32_KHR) &&& env::VK_USE_PLATFORM_WIN32_KHR) {
+  VkStructureType sType;
+  void * pNext;
+  VkFence fence;
+  VkExternalFenceHandleTypeFlagBits handleType;
+}
+
+alias PFN_vkImportFenceWin32HandleKHR @if($defined(env::VK_USE_PLATFORM_WIN32_KHR) &&& env::VK_USE_PLATFORM_WIN32_KHR) = fn VkResult(
+  VkDevice device, 
+  VkImportFenceWin32HandleInfoKHR * pImportFenceWin32HandleInfo);
+
+alias PFN_vkGetFenceWin32HandleKHR @if($defined(env::VK_USE_PLATFORM_WIN32_KHR) &&& env::VK_USE_PLATFORM_WIN32_KHR) = fn VkResult(
+  VkDevice device, 
+  VkFenceGetWin32HandleInfoKHR * pGetWin32HandleInfo, 
+  Handle * pHandle);
+
+fn VkResult importFenceWin32HandleKHR(
+  VkDevice device, 
+  VkImportFenceWin32HandleInfoKHR * pImportFenceWin32HandleInfo)
+@extern("vkImportFenceWin32HandleKHR") @if($defined(env::VK_USE_PLATFORM_WIN32_KHR) &&& env::VK_USE_PLATFORM_WIN32_KHR);
+
+fn VkResult getFenceWin32HandleKHR(
+  VkDevice device, 
+  VkFenceGetWin32HandleInfoKHR * pGetWin32HandleInfo, 
+  Handle * pHandle)
+@extern("vkGetFenceWin32HandleKHR") @if($defined(env::VK_USE_PLATFORM_WIN32_KHR) &&& env::VK_USE_PLATFORM_WIN32_KHR);
+
+struct VkImportMemoryWin32HandleInfoNV @if($defined(env::VK_USE_PLATFORM_WIN32_KHR) &&& env::VK_USE_PLATFORM_WIN32_KHR) {
+  VkStructureType sType;
+  void * pNext;
+  VkExternalMemoryHandleTypeFlagsNV handleType;
+  Handle handle;
+}
+
+struct VkExportMemoryWin32HandleInfoNV @if($defined(env::VK_USE_PLATFORM_WIN32_KHR) &&& env::VK_USE_PLATFORM_WIN32_KHR) {
+  VkStructureType sType;
+  void * pNext;
+  SecurityAttributes * pAttributes;
+  Dword dwAccess;
+}
+
+alias PFN_vkGetMemoryWin32HandleNV @if($defined(env::VK_USE_PLATFORM_WIN32_KHR) &&& env::VK_USE_PLATFORM_WIN32_KHR) = fn VkResult(
+  VkDevice device, 
+  VkDeviceMemory memory, 
+  VkExternalMemoryHandleTypeFlagsNV handleType, 
+  Handle * pHandle);
+
+fn VkResult getMemoryWin32HandleNV(
+  VkDevice device, 
+  VkDeviceMemory memory, 
+  VkExternalMemoryHandleTypeFlagsNV handleType, 
+  Handle * pHandle)
+@extern("vkGetMemoryWin32HandleNV") @if($defined(env::VK_USE_PLATFORM_WIN32_KHR) &&& env::VK_USE_PLATFORM_WIN32_KHR);
+
+struct VkWin32KeyedMutexAcquireReleaseInfoNV @if($defined(env::VK_USE_PLATFORM_WIN32_KHR) &&& env::VK_USE_PLATFORM_WIN32_KHR) {
+  VkStructureType sType;
+  void * pNext;
+  uint acquireCount;
+  VkDeviceMemory * pAcquireSyncs;
+  ulong * pAcquireKeys;
+  uint * pAcquireTimeoutMilliseconds;
+  uint releaseCount;
+  VkDeviceMemory * pReleaseSyncs;
+  ulong * pReleaseKeys;
+}
+
+typedef VkFullScreenExclusiveEXT = inline CUInt;
+const VkFullScreenExclusiveEXT FULL_SCREEN_EXCLUSIVE_DEFAULT_EXT = 0;
+const VkFullScreenExclusiveEXT FULL_SCREEN_EXCLUSIVE_ALLOWED_EXT = 1;
+const VkFullScreenExclusiveEXT FULL_SCREEN_EXCLUSIVE_DISALLOWED_EXT = 2;
+const VkFullScreenExclusiveEXT FULL_SCREEN_EXCLUSIVE_APPLICATION_CONTROLLED_EXT = 3;
+const VkFullScreenExclusiveEXT FULL_SCREEN_EXCLUSIVE_MAX_ENUM_EXT = 0x7FFFFFFF;
+
+struct VkSurfaceFullScreenExclusiveInfoEXT {
+  VkStructureType sType;
+  void * pNext;
+  VkFullScreenExclusiveEXT fullScreenExclusive;
+}
+
+struct VkSurfaceCapabilitiesFullScreenExclusiveEXT {
+  VkStructureType sType;
+  void * pNext;
+  VkBool32 fullScreenExclusiveSupported;
+}
+
+struct VkSurfaceFullScreenExclusiveWin32InfoEXT @if($defined(env::VK_USE_PLATFORM_WIN32_KHR) &&& env::VK_USE_PLATFORM_WIN32_KHR) {
+  VkStructureType sType;
+  void * pNext;
+  Hmonitor hmonitor;
+}
+
+alias PFN_vkGetPhysicalDeviceSurfacePresentModes2EXT = fn VkResult(
+  VkPhysicalDevice physicalDevice, 
+  VkPhysicalDeviceSurfaceInfo2KHR * pSurfaceInfo, 
+  uint * pPresentModeCount, 
+  VkPresentModeKHR * pPresentModes);
+
+alias PFN_vkAcquireFullScreenExclusiveModeEXT = fn VkResult(
+  VkDevice device, 
+  VkSwapchainKHR swapchain);
+
+alias PFN_vkReleaseFullScreenExclusiveModeEXT = fn VkResult(
+  VkDevice device, 
+  VkSwapchainKHR swapchain);
+
+alias PFN_vkGetDeviceGroupSurfacePresentModes2EXT = fn VkResult(
+  VkDevice device, 
+  VkPhysicalDeviceSurfaceInfo2KHR * pSurfaceInfo, 
+  VkDeviceGroupPresentModeFlagsKHR * pModes);
+
+fn VkResult getPhysicalDeviceSurfacePresentModes2EXT(
+  VkPhysicalDevice physicalDevice, 
+  VkPhysicalDeviceSurfaceInfo2KHR * pSurfaceInfo, 
+  uint * pPresentModeCount, 
+  VkPresentModeKHR * pPresentModes)
+@extern("vkGetPhysicalDeviceSurfacePresentModes2EXT");
+
+fn VkResult acquireFullScreenExclusiveModeEXT(
+  VkDevice device, 
+  VkSwapchainKHR swapchain)
+@extern("vkAcquireFullScreenExclusiveModeEXT");
+
+fn VkResult releaseFullScreenExclusiveModeEXT(
+  VkDevice device, 
+  VkSwapchainKHR swapchain)
+@extern("vkReleaseFullScreenExclusiveModeEXT");
+
+fn VkResult getDeviceGroupSurfacePresentModes2EXT(
+  VkDevice device, 
+  VkPhysicalDeviceSurfaceInfo2KHR * pSurfaceInfo, 
+  VkDeviceGroupPresentModeFlagsKHR * pModes)
+@extern("vkGetDeviceGroupSurfacePresentModes2EXT");
+
+alias VkXcbSurfaceCreateFlagsKHR @if($defined(env::VK_USE_PLATFORM_XCB_KHR) &&& env::VK_USE_PLATFORM_XCB_KHR) = VkFlags;
+
+struct VkXcbSurfaceCreateInfoKHR @if($defined(env::VK_USE_PLATFORM_XCB_KHR) &&& env::VK_USE_PLATFORM_XCB_KHR) {
+  VkStructureType sType;
+  void * pNext;
+  VkXcbSurfaceCreateFlagsKHR flags;
+  XcbConnectionT * connection;
+  XcbWindowT window;
+}
+
+alias PFN_vkCreateXcbSurfaceKHR @if($defined(env::VK_USE_PLATFORM_XCB_KHR) &&& env::VK_USE_PLATFORM_XCB_KHR) = fn VkResult(
+  VkInstance instance, 
+  VkXcbSurfaceCreateInfoKHR * pCreateInfo, 
+  VkAllocationCallbacks * pAllocator, 
+  VkSurfaceKHR * pSurface);
+
+alias PFN_vkGetPhysicalDeviceXcbPresentationSupportKHR @if($defined(env::VK_USE_PLATFORM_XCB_KHR) &&& env::VK_USE_PLATFORM_XCB_KHR) = fn VkBool32(
+  VkPhysicalDevice physicalDevice, 
+  uint queueFamilyIndex, 
+  XcbConnectionT * connection, 
+  XcbVisualidT visual_id);
+
+fn VkResult createXcbSurfaceKHR(
+  VkInstance instance, 
+  VkXcbSurfaceCreateInfoKHR * pCreateInfo, 
+  VkAllocationCallbacks * pAllocator, 
+  VkSurfaceKHR * pSurface)
+@extern("vkCreateXcbSurfaceKHR") @if($defined(env::VK_USE_PLATFORM_XCB_KHR) &&& env::VK_USE_PLATFORM_XCB_KHR);
+
+fn VkBool32 getPhysicalDeviceXcbPresentationSupportKHR(
+  VkPhysicalDevice physicalDevice, 
+  uint queueFamilyIndex, 
+  XcbConnectionT * connection, 
+  XcbVisualidT visual_id)
+@extern("vkGetPhysicalDeviceXcbPresentationSupportKHR") @if($defined(env::VK_USE_PLATFORM_XCB_KHR) &&& env::VK_USE_PLATFORM_XCB_KHR);
+
+alias VkXlibSurfaceCreateFlagsKHR @if($defined(env::VK_USE_PLATFORM_XLIB_KHR) &&& env::VK_USE_PLATFORM_XLIB_KHR) = VkFlags;
+
+struct VkXlibSurfaceCreateInfoKHR @if($defined(env::VK_USE_PLATFORM_XLIB_KHR) &&& env::VK_USE_PLATFORM_XLIB_KHR) {
+  VkStructureType sType;
+  void * pNext;
+  VkXlibSurfaceCreateFlagsKHR flags;
+  Display * dpy;
+  Window window;
+}
+
+alias PFN_vkCreateXlibSurfaceKHR @if($defined(env::VK_USE_PLATFORM_XLIB_KHR) &&& env::VK_USE_PLATFORM_XLIB_KHR) = fn VkResult(
+  VkInstance instance, 
+  VkXlibSurfaceCreateInfoKHR * pCreateInfo, 
+  VkAllocationCallbacks * pAllocator, 
+  VkSurfaceKHR * pSurface);
+
+alias PFN_vkGetPhysicalDeviceXlibPresentationSupportKHR @if($defined(env::VK_USE_PLATFORM_XLIB_KHR) &&& env::VK_USE_PLATFORM_XLIB_KHR) = fn VkBool32(
+  VkPhysicalDevice physicalDevice, 
+  uint queueFamilyIndex, 
+  Display * dpy, 
+  VisualID visualID);
+
+fn VkResult createXlibSurfaceKHR(
+  VkInstance instance, 
+  VkXlibSurfaceCreateInfoKHR * pCreateInfo, 
+  VkAllocationCallbacks * pAllocator, 
+  VkSurfaceKHR * pSurface)
+@extern("vkCreateXlibSurfaceKHR") @if($defined(env::VK_USE_PLATFORM_XLIB_KHR) &&& env::VK_USE_PLATFORM_XLIB_KHR);
+
+fn VkBool32 getPhysicalDeviceXlibPresentationSupportKHR(
+  VkPhysicalDevice physicalDevice, 
+  uint queueFamilyIndex, 
+  Display * dpy, 
+  VisualID visualID)
+@extern("vkGetPhysicalDeviceXlibPresentationSupportKHR") @if($defined(env::VK_USE_PLATFORM_XLIB_KHR) &&& env::VK_USE_PLATFORM_XLIB_KHR);
+
+alias VkDirectFBSurfaceCreateFlagsEXT @if($defined(env::VK_USE_PLATFORM_DIRECTFB_EXT) &&& env::VK_USE_PLATFORM_DIRECTFB_EXT) = VkFlags;
+
+struct VkDirectFBSurfaceCreateInfoEXT @if($defined(env::VK_USE_PLATFORM_DIRECTFB_EXT) &&& env::VK_USE_PLATFORM_DIRECTFB_EXT) {
+  VkStructureType sType;
+  void * pNext;
+  VkDirectFBSurfaceCreateFlagsEXT flags;
+  IDirectFB * dfb;
+  IDirectFBSurface * surface;
+}
+
+alias PFN_vkCreateDirectFBSurfaceEXT @if($defined(env::VK_USE_PLATFORM_DIRECTFB_EXT) &&& env::VK_USE_PLATFORM_DIRECTFB_EXT) = fn VkResult(
+  VkInstance instance, 
+  VkDirectFBSurfaceCreateInfoEXT * pCreateInfo, 
+  VkAllocationCallbacks * pAllocator, 
+  VkSurfaceKHR * pSurface);
+
+alias PFN_vkGetPhysicalDeviceDirectFBPresentationSupportEXT @if($defined(env::VK_USE_PLATFORM_DIRECTFB_EXT) &&& env::VK_USE_PLATFORM_DIRECTFB_EXT) = fn VkBool32(
+  VkPhysicalDevice physicalDevice, 
+  uint queueFamilyIndex, 
+  IDirectFB * dfb);
+
+fn VkResult createDirectFBSurfaceEXT(
+  VkInstance instance, 
+  VkDirectFBSurfaceCreateInfoEXT * pCreateInfo, 
+  VkAllocationCallbacks * pAllocator, 
+  VkSurfaceKHR * pSurface)
+@extern("vkCreateDirectFBSurfaceEXT") @if($defined(env::VK_USE_PLATFORM_DIRECTFB_EXT) &&& env::VK_USE_PLATFORM_DIRECTFB_EXT);
+
+fn VkBool32 getPhysicalDeviceDirectFBPresentationSupportEXT(
+  VkPhysicalDevice physicalDevice, 
+  uint queueFamilyIndex, 
+  IDirectFB * dfb)
+@extern("vkGetPhysicalDeviceDirectFBPresentationSupportEXT") @if($defined(env::VK_USE_PLATFORM_DIRECTFB_EXT) &&& env::VK_USE_PLATFORM_DIRECTFB_EXT);
+
+typedef GgpStreamDescriptor = void;
+
+typedef GgpFrameToken = void;
+
+alias VkStreamDescriptorSurfaceCreateFlagsGGP @if($defined(env::VK_USE_PLATFORM_GGP) &&& env::VK_USE_PLATFORM_GGP) = VkFlags;
+
+struct VkStreamDescriptorSurfaceCreateInfoGGP @if($defined(env::VK_USE_PLATFORM_GGP) &&& env::VK_USE_PLATFORM_GGP) {
+  VkStructureType sType;
+  void * pNext;
+  VkStreamDescriptorSurfaceCreateFlagsGGP flags;
+  GgpStreamDescriptor streamDescriptor;
+}
+
+alias PFN_vkCreateStreamDescriptorSurfaceGGP @if($defined(env::VK_USE_PLATFORM_GGP) &&& env::VK_USE_PLATFORM_GGP) = fn VkResult(
+  VkInstance instance, 
+  VkStreamDescriptorSurfaceCreateInfoGGP * pCreateInfo, 
+  VkAllocationCallbacks * pAllocator, 
+  VkSurfaceKHR * pSurface);
+
+fn VkResult createStreamDescriptorSurfaceGGP(
+  VkInstance instance, 
+  VkStreamDescriptorSurfaceCreateInfoGGP * pCreateInfo, 
+  VkAllocationCallbacks * pAllocator, 
+  VkSurfaceKHR * pSurface)
+@extern("vkCreateStreamDescriptorSurfaceGGP") @if($defined(env::VK_USE_PLATFORM_GGP) &&& env::VK_USE_PLATFORM_GGP);
+
+struct VkPresentFrameTokenGGP @if($defined(env::VK_USE_PLATFORM_GGP) &&& env::VK_USE_PLATFORM_GGP) {
+  VkStructureType sType;
+  void * pNext;
+  GgpFrameToken frameToken;
+}
+
+alias VkScreenSurfaceCreateFlagsQNX @if($defined(env::VK_USE_PLATFORM_SCREEN_QNX) &&& env::VK_USE_PLATFORM_SCREEN_QNX) = VkFlags;
+
+typedef _Screen_context = void;
+
+typedef _Screen_window = void;
+
+struct VkScreenSurfaceCreateInfoQNX @if($defined(env::VK_USE_PLATFORM_SCREEN_QNX) &&& env::VK_USE_PLATFORM_SCREEN_QNX) {
+  VkStructureType sType;
+  void * pNext;
+  VkScreenSurfaceCreateFlagsQNX flags;
+  _Screen_context * context;
+  _Screen_window * window;
+}
+
+alias PFN_vkCreateScreenSurfaceQNX @if($defined(env::VK_USE_PLATFORM_SCREEN_QNX) &&& env::VK_USE_PLATFORM_SCREEN_QNX) = fn VkResult(
+  VkInstance instance, 
+  VkScreenSurfaceCreateInfoQNX * pCreateInfo, 
+  VkAllocationCallbacks * pAllocator, 
+  VkSurfaceKHR * pSurface);
+
+alias PFN_vkGetPhysicalDeviceScreenPresentationSupportQNX @if($defined(env::VK_USE_PLATFORM_SCREEN_QNX) &&& env::VK_USE_PLATFORM_SCREEN_QNX) = fn VkBool32(
+  VkPhysicalDevice physicalDevice, 
+  uint queueFamilyIndex, 
+  _Screen_window * window);
+
+fn VkResult createScreenSurfaceQNX(
+  VkInstance instance, 
+  VkScreenSurfaceCreateInfoQNX * pCreateInfo, 
+  VkAllocationCallbacks * pAllocator, 
+  VkSurfaceKHR * pSurface)
+@extern("vkCreateScreenSurfaceQNX") @if($defined(env::VK_USE_PLATFORM_SCREEN_QNX) &&& env::VK_USE_PLATFORM_SCREEN_QNX);
+
+fn VkBool32 getPhysicalDeviceScreenPresentationSupportQNX(
+  VkPhysicalDevice physicalDevice, 
+  uint queueFamilyIndex, 
+  _Screen_window * window)
+@extern("vkGetPhysicalDeviceScreenPresentationSupportQNX") @if($defined(env::VK_USE_PLATFORM_SCREEN_QNX) &&& env::VK_USE_PLATFORM_SCREEN_QNX);
 
 typedef VkVideoSessionKHR_T = void;
 

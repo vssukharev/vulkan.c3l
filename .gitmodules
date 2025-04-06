@@ -1,0 +1,3 @@
+[submodule "bindgen.c3l"]
+	path = bindgen.c3l
+	url = https://github.com/vssukharev/bindgen.c3l

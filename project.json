@@ -1,28 +1,13 @@
 {
   "output" : "build",
 
-  "dependency-search-paths" : [ "." ],
+  "dependency-search-paths" : [ "bindgen.c3l" ],
   "dependencies" : [ "bindgen" ],
 
   "targets" : {
-    "dummy" : {
+    "all" : {
+      "sources" : [ "main.c3" ],
       "type" : "executable",
-      "sources" : [ "examples/dummy.c3" ],
-    },
-
-    "glfw" : {
-      "type" : "executable",
-      "sources" : [ "examples/glfw.c3" ],
-    },
-
-    "vulkan" : {
-      "type" : "executable",
-      "sources" : [ "examples/vulkan.c3" ],
-    },
-
-    "raylib" : {
-      "type" : "executable",
-      "sources" : [ "examples/raylib.c3" ],
-    },
+    }
   },
 }

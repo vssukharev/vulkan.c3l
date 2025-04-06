@@ -129,6 +129,29 @@ fn String get_const_rhs(String name)
   }
 }
 
+fn String trans_type(String name, Allocator alloc)
+{
+  String res;
+
+  String? t = name.map_basic_type(alloc);
+  if (catch t)
+  {
+    switch
+    {
+      case name.starts_with("wl_"):
+        res = name.snake_to_pascal(alloc);
+      default:
+        res = name.camel_to_pascal(alloc);
+    }
+  }
+  else
+  {
+    res = t;
+  }
+
+  return res;
+}
+
 macro void translate_headers(Path root, String $ver) => @pool() 
 {
   Path out = root.tappend("import/" +++ $ver +++ "/vulkan.c3i")!!;
@@ -140,8 +163,7 @@ macro void translate_headers(Path root, String $ver) => @pool()
     .func = fn String(String name, Allocator alloc) =>
       name.strip("vk").pascal_to_camel(alloc),
 
-    .type = fn String(String name, Allocator alloc) =>
-      name.map_basic_type(alloc) ?? name.copy(alloc),
+    .type = &trans_type,
 
     .variable = fn String(String name, Allocator alloc) =>
       name == "module" ? "mod" : name.pascal_to_camel(alloc),
@@ -169,22 +191,24 @@ macro void translate_headers(Path root, String $ver) => @pool()
   BGOptions opts = {
     .out_name = out.str_view(),
     .clang_args = { 
-      "-I.",
+      "-I.", "-I../external",
       "-DVK_ENABLE_BETA_EXTENSIONS",
-      // "-DVK_USE_PLATFORM_MIR_KHR",
-      // "-DVK_USE_PLATFORM_WAYLAND_KHR",
+      "-DVK_USE_PLATFORM_MIR_KHR",
+      "-DVK_USE_PLATFORM_WAYLAND_KHR",
       // "-DVK_USE_PLATFORM_WIN32_KHR",
       // "-DVK_USE_PLATFORM_XCB_KHR",
       // "-DVK_USE_PLATFORM_XLIB_KHR",
-      // "-DVK_USE_PLATFORM_ANDROID_KHR",
-      // "-DVK_USE_PLATFORM_MACOS_MVK",
-      // "-DVK_USE_PLATFORM_IOS_MVK",
-      // "-DVK_USE_PLATFORM_METAL_EXT",
+      "-DVK_USE_PLATFORM_ANDROID_KHR",
+      "-DVK_USE_PLATFORM_MACOS_MVK",
+      "-DVK_USE_PLATFORM_IOS_MVK",
+      "-DVK_USE_PLATFORM_METAL_EXT",
+      "-DVK_USE_PLATFORM_VI_NN",
     },
     .module_name = "vulkan::vk",
     .skip_errors = false,
-    .include_file = fn bool(String name) =>
-      name.contains("vulkan_"),
+    .no_verbose = true,
+    .include_file = fn bool(String path) =>
+      path.contains("vulkan_") || path.contains("external/"),
   };
 
   bg::translate_header("vulkan/vulkan.h", transfns, opts, genfns)!!;

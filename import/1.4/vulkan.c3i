@@ -2517,6 +2517,66 @@ const EXT_MESH_SHADER_SPEC_VERSION = 1;
 
 const EXT_MESH_SHADER_EXTENSION_NAME = "VK_EXT_mesh_shader";
 
+const KHR_ANDROID_SURFACE = 1;
+
+const KHR_ANDROID_SURFACE_SPEC_VERSION = 6;
+
+const KHR_ANDROID_SURFACE_EXTENSION_NAME = "VK_KHR_android_surface";
+
+const ANDROID_EXTERNAL_MEMORY_ANDROID_HARDWARE_BUFFER = 1;
+
+const ANDROID_EXTERNAL_MEMORY_ANDROID_HARDWARE_BUFFER_SPEC_VERSION = 5;
+
+const ANDROID_EXTERNAL_MEMORY_ANDROID_HARDWARE_BUFFER_EXTENSION_NAME = "VK_ANDROID_external_memory_android_hardware_buffer";
+
+const ANDROID_EXTERNAL_FORMAT_RESOLVE = 1;
+
+const ANDROID_EXTERNAL_FORMAT_RESOLVE_SPEC_VERSION = 1;
+
+const ANDROID_EXTERNAL_FORMAT_RESOLVE_EXTENSION_NAME = "VK_ANDROID_external_format_resolve";
+
+const MVK_IOS_SURFACE = 1;
+
+const MVK_IOS_SURFACE_SPEC_VERSION = 3;
+
+const MVK_IOS_SURFACE_EXTENSION_NAME = "VK_MVK_ios_surface";
+
+const MVK_MACOS_SURFACE = 1;
+
+const MVK_MACOS_SURFACE_SPEC_VERSION = 3;
+
+const MVK_MACOS_SURFACE_EXTENSION_NAME = "VK_MVK_macos_surface";
+
+const EXT_METAL_SURFACE = 1;
+
+const EXT_METAL_SURFACE_SPEC_VERSION = 1;
+
+const EXT_METAL_SURFACE_EXTENSION_NAME = "VK_EXT_metal_surface";
+
+const EXT_METAL_OBJECTS = 1;
+
+const EXT_METAL_OBJECTS_SPEC_VERSION = 2;
+
+const EXT_METAL_OBJECTS_EXTENSION_NAME = "VK_EXT_metal_objects";
+
+const EXT_EXTERNAL_MEMORY_METAL = 1;
+
+const EXT_EXTERNAL_MEMORY_METAL_SPEC_VERSION = 1;
+
+const EXT_EXTERNAL_MEMORY_METAL_EXTENSION_NAME = "VK_EXT_external_memory_metal";
+
+const NN_VI_SURFACE = 1;
+
+const NN_VI_SURFACE_SPEC_VERSION = 1;
+
+const NN_VI_SURFACE_EXTENSION_NAME = "VK_NN_vi_surface";
+
+const KHR_WAYLAND_SURFACE = 1;
+
+const KHR_WAYLAND_SURFACE_SPEC_VERSION = 6;
+
+const KHR_WAYLAND_SURFACE_EXTENSION_NAME = "VK_KHR_wayland_surface";
+
 const KHR_PORTABILITY_SUBSET = 1;
 
 const KHR_PORTABILITY_SUBSET_SPEC_VERSION = 1;
@@ -27240,6 +27300,418 @@ fn void cmdDrawMeshTasksIndirectCountEXT(
   uint maxDrawCount, 
   uint stride)
 @extern("vkCmdDrawMeshTasksIndirectCountEXT");
+
+typedef ANativeWindow = void;
+
+alias VkAndroidSurfaceCreateFlagsKHR = VkFlags;
+
+struct VkAndroidSurfaceCreateInfoKHR {
+  VkStructureType sType;
+  void * pNext;
+  VkAndroidSurfaceCreateFlagsKHR flags;
+  ANativeWindow * window;
+}
+
+alias PFN_vkCreateAndroidSurfaceKHR = fn VkResult(
+  VkInstance instance, 
+  VkAndroidSurfaceCreateInfoKHR * pCreateInfo, 
+  VkAllocationCallbacks * pAllocator, 
+  VkSurfaceKHR * pSurface);
+
+fn VkResult createAndroidSurfaceKHR(
+  VkInstance instance, 
+  VkAndroidSurfaceCreateInfoKHR * pCreateInfo, 
+  VkAllocationCallbacks * pAllocator, 
+  VkSurfaceKHR * pSurface)
+@extern("vkCreateAndroidSurfaceKHR");
+
+typedef AHardwareBuffer = void;
+
+struct VkAndroidHardwareBufferUsageANDROID {
+  VkStructureType sType;
+  void * pNext;
+  ulong androidHardwareBufferUsage;
+}
+
+struct VkAndroidHardwareBufferPropertiesANDROID {
+  VkStructureType sType;
+  void * pNext;
+  VkDeviceSize allocationSize;
+  uint memoryTypeBits;
+}
+
+struct VkAndroidHardwareBufferFormatPropertiesANDROID {
+  VkStructureType sType;
+  void * pNext;
+  VkFormat format;
+  ulong externalFormat;
+  VkFormatFeatureFlags formatFeatures;
+  VkComponentMapping samplerYcbcrConversionComponents;
+  VkSamplerYcbcrModelConversion suggestedYcbcrModel;
+  VkSamplerYcbcrRange suggestedYcbcrRange;
+  VkChromaLocation suggestedXChromaOffset;
+  VkChromaLocation suggestedYChromaOffset;
+}
+
+struct VkImportAndroidHardwareBufferInfoANDROID {
+  VkStructureType sType;
+  void * pNext;
+  AHardwareBuffer * buffer;
+}
+
+struct VkMemoryGetAndroidHardwareBufferInfoANDROID {
+  VkStructureType sType;
+  void * pNext;
+  VkDeviceMemory memory;
+}
+
+struct VkExternalFormatANDROID {
+  VkStructureType sType;
+  void * pNext;
+  ulong externalFormat;
+}
+
+struct VkAndroidHardwareBufferFormatProperties2ANDROID {
+  VkStructureType sType;
+  void * pNext;
+  VkFormat format;
+  ulong externalFormat;
+  VkFormatFeatureFlags2 formatFeatures;
+  VkComponentMapping samplerYcbcrConversionComponents;
+  VkSamplerYcbcrModelConversion suggestedYcbcrModel;
+  VkSamplerYcbcrRange suggestedYcbcrRange;
+  VkChromaLocation suggestedXChromaOffset;
+  VkChromaLocation suggestedYChromaOffset;
+}
+
+alias PFN_vkGetAndroidHardwareBufferPropertiesANDROID = fn VkResult(
+  VkDevice device, 
+  AHardwareBuffer * buffer, 
+  VkAndroidHardwareBufferPropertiesANDROID * pProperties);
+
+alias PFN_vkGetMemoryAndroidHardwareBufferANDROID = fn VkResult(
+  VkDevice device, 
+  VkMemoryGetAndroidHardwareBufferInfoANDROID * pInfo, 
+  AHardwareBuffer ** pBuffer);
+
+fn VkResult getAndroidHardwareBufferPropertiesANDROID(
+  VkDevice device, 
+  AHardwareBuffer * buffer, 
+  VkAndroidHardwareBufferPropertiesANDROID * pProperties)
+@extern("vkGetAndroidHardwareBufferPropertiesANDROID");
+
+fn VkResult getMemoryAndroidHardwareBufferANDROID(
+  VkDevice device, 
+  VkMemoryGetAndroidHardwareBufferInfoANDROID * pInfo, 
+  AHardwareBuffer ** pBuffer)
+@extern("vkGetMemoryAndroidHardwareBufferANDROID");
+
+struct VkPhysicalDeviceExternalFormatResolveFeaturesANDROID {
+  VkStructureType sType;
+  void * pNext;
+  VkBool32 externalFormatResolve;
+}
+
+struct VkPhysicalDeviceExternalFormatResolvePropertiesANDROID {
+  VkStructureType sType;
+  void * pNext;
+  VkBool32 nullColorAttachmentWithExternalFormatResolve;
+  VkChromaLocation externalFormatResolveChromaOffsetX;
+  VkChromaLocation externalFormatResolveChromaOffsetY;
+}
+
+struct VkAndroidHardwareBufferFormatResolvePropertiesANDROID {
+  VkStructureType sType;
+  void * pNext;
+  VkFormat colorAttachmentFormat;
+}
+
+alias VkIOSSurfaceCreateFlagsMVK = VkFlags;
+
+struct VkIOSSurfaceCreateInfoMVK {
+  VkStructureType sType;
+  void * pNext;
+  VkIOSSurfaceCreateFlagsMVK flags;
+  void * pView;
+}
+
+alias PFN_vkCreateIOSSurfaceMVK = fn VkResult(
+  VkInstance instance, 
+  VkIOSSurfaceCreateInfoMVK * pCreateInfo, 
+  VkAllocationCallbacks * pAllocator, 
+  VkSurfaceKHR * pSurface);
+
+fn VkResult createIOSSurfaceMVK(
+  VkInstance instance, 
+  VkIOSSurfaceCreateInfoMVK * pCreateInfo, 
+  VkAllocationCallbacks * pAllocator, 
+  VkSurfaceKHR * pSurface)
+@extern("vkCreateIOSSurfaceMVK");
+
+alias VkMacOSSurfaceCreateFlagsMVK = VkFlags;
+
+struct VkMacOSSurfaceCreateInfoMVK {
+  VkStructureType sType;
+  void * pNext;
+  VkMacOSSurfaceCreateFlagsMVK flags;
+  void * pView;
+}
+
+alias PFN_vkCreateMacOSSurfaceMVK = fn VkResult(
+  VkInstance instance, 
+  VkMacOSSurfaceCreateInfoMVK * pCreateInfo, 
+  VkAllocationCallbacks * pAllocator, 
+  VkSurfaceKHR * pSurface);
+
+fn VkResult createMacOSSurfaceMVK(
+  VkInstance instance, 
+  VkMacOSSurfaceCreateInfoMVK * pCreateInfo, 
+  VkAllocationCallbacks * pAllocator, 
+  VkSurfaceKHR * pSurface)
+@extern("vkCreateMacOSSurfaceMVK");
+
+alias CAMetalLayer = void;
+
+alias VkMetalSurfaceCreateFlagsEXT = VkFlags;
+
+struct VkMetalSurfaceCreateInfoEXT {
+  VkStructureType sType;
+  void * pNext;
+  VkMetalSurfaceCreateFlagsEXT flags;
+  CAMetalLayer * pLayer;
+}
+
+alias PFN_vkCreateMetalSurfaceEXT = fn VkResult(
+  VkInstance instance, 
+  VkMetalSurfaceCreateInfoEXT * pCreateInfo, 
+  VkAllocationCallbacks * pAllocator, 
+  VkSurfaceKHR * pSurface);
+
+fn VkResult createMetalSurfaceEXT(
+  VkInstance instance, 
+  VkMetalSurfaceCreateInfoEXT * pCreateInfo, 
+  VkAllocationCallbacks * pAllocator, 
+  VkSurfaceKHR * pSurface)
+@extern("vkCreateMetalSurfaceEXT");
+
+alias MTLDevice_id = void *;
+
+alias MTLCommandQueue_id = void *;
+
+alias MTLBuffer_id = void *;
+
+alias MTLTexture_id = void *;
+
+typedef __IOSurface = void;
+
+alias IOSurfaceRef = __IOSurface *;
+
+alias MTLSharedEvent_id = void *;
+
+typedef VkExportMetalObjectTypeFlagBitsEXT = inline CUInt;
+const VkExportMetalObjectTypeFlagBitsEXT EXPORT_METAL_OBJECT_TYPE_METAL_DEVICE_BIT_EXT = 0x00000001;
+const VkExportMetalObjectTypeFlagBitsEXT EXPORT_METAL_OBJECT_TYPE_METAL_COMMAND_QUEUE_BIT_EXT = 0x00000002;
+const VkExportMetalObjectTypeFlagBitsEXT EXPORT_METAL_OBJECT_TYPE_METAL_BUFFER_BIT_EXT = 0x00000004;
+const VkExportMetalObjectTypeFlagBitsEXT EXPORT_METAL_OBJECT_TYPE_METAL_TEXTURE_BIT_EXT = 0x00000008;
+const VkExportMetalObjectTypeFlagBitsEXT EXPORT_METAL_OBJECT_TYPE_METAL_IOSURFACE_BIT_EXT = 0x00000010;
+const VkExportMetalObjectTypeFlagBitsEXT EXPORT_METAL_OBJECT_TYPE_METAL_SHARED_EVENT_BIT_EXT = 0x00000020;
+const VkExportMetalObjectTypeFlagBitsEXT EXPORT_METAL_OBJECT_TYPE_FLAG_BITS_MAX_ENUM_EXT = 0x7FFFFFFF;
+
+alias VkExportMetalObjectTypeFlagsEXT = VkFlags;
+
+struct VkExportMetalObjectCreateInfoEXT {
+  VkStructureType sType;
+  void * pNext;
+  VkExportMetalObjectTypeFlagBitsEXT exportObjectType;
+}
+
+struct VkExportMetalObjectsInfoEXT {
+  VkStructureType sType;
+  void * pNext;
+}
+
+struct VkExportMetalDeviceInfoEXT {
+  VkStructureType sType;
+  void * pNext;
+  MTLDevice_id mtlDevice;
+}
+
+struct VkExportMetalCommandQueueInfoEXT {
+  VkStructureType sType;
+  void * pNext;
+  VkQueue queue;
+  MTLCommandQueue_id mtlCommandQueue;
+}
+
+struct VkExportMetalBufferInfoEXT {
+  VkStructureType sType;
+  void * pNext;
+  VkDeviceMemory memory;
+  MTLBuffer_id mtlBuffer;
+}
+
+struct VkImportMetalBufferInfoEXT {
+  VkStructureType sType;
+  void * pNext;
+  MTLBuffer_id mtlBuffer;
+}
+
+struct VkExportMetalTextureInfoEXT {
+  VkStructureType sType;
+  void * pNext;
+  VkImage image;
+  VkImageView imageView;
+  VkBufferView bufferView;
+  VkImageAspectFlagBits plane;
+  MTLTexture_id mtlTexture;
+}
+
+struct VkImportMetalTextureInfoEXT {
+  VkStructureType sType;
+  void * pNext;
+  VkImageAspectFlagBits plane;
+  MTLTexture_id mtlTexture;
+}
+
+struct VkExportMetalIOSurfaceInfoEXT {
+  VkStructureType sType;
+  void * pNext;
+  VkImage image;
+  IOSurfaceRef ioSurface;
+}
+
+struct VkImportMetalIOSurfaceInfoEXT {
+  VkStructureType sType;
+  void * pNext;
+  IOSurfaceRef ioSurface;
+}
+
+struct VkExportMetalSharedEventInfoEXT {
+  VkStructureType sType;
+  void * pNext;
+  VkSemaphore semaphore;
+  VkEvent event;
+  MTLSharedEvent_id mtlSharedEvent;
+}
+
+struct VkImportMetalSharedEventInfoEXT {
+  VkStructureType sType;
+  void * pNext;
+  MTLSharedEvent_id mtlSharedEvent;
+}
+
+alias PFN_vkExportMetalObjectsEXT = fn void(
+  VkDevice device, 
+  VkExportMetalObjectsInfoEXT * pMetalObjectsInfo);
+
+fn void exportMetalObjectsEXT(
+  VkDevice device, 
+  VkExportMetalObjectsInfoEXT * pMetalObjectsInfo)
+@extern("vkExportMetalObjectsEXT");
+
+struct VkImportMemoryMetalHandleInfoEXT {
+  VkStructureType sType;
+  void * pNext;
+  VkExternalMemoryHandleTypeFlagBits handleType;
+  void * handle;
+}
+
+struct VkMemoryMetalHandlePropertiesEXT {
+  VkStructureType sType;
+  void * pNext;
+  uint memoryTypeBits;
+}
+
+struct VkMemoryGetMetalHandleInfoEXT {
+  VkStructureType sType;
+  void * pNext;
+  VkDeviceMemory memory;
+  VkExternalMemoryHandleTypeFlagBits handleType;
+}
+
+alias PFN_vkGetMemoryMetalHandleEXT = fn VkResult(
+  VkDevice device, 
+  VkMemoryGetMetalHandleInfoEXT * pGetMetalHandleInfo, 
+  void ** pHandle);
+
+alias PFN_vkGetMemoryMetalHandlePropertiesEXT = fn VkResult(
+  VkDevice device, 
+  VkExternalMemoryHandleTypeFlagBits handleType, 
+  void * pHandle, 
+  VkMemoryMetalHandlePropertiesEXT * pMemoryMetalHandleProperties);
+
+fn VkResult getMemoryMetalHandleEXT(
+  VkDevice device, 
+  VkMemoryGetMetalHandleInfoEXT * pGetMetalHandleInfo, 
+  void ** pHandle)
+@extern("vkGetMemoryMetalHandleEXT");
+
+fn VkResult getMemoryMetalHandlePropertiesEXT(
+  VkDevice device, 
+  VkExternalMemoryHandleTypeFlagBits handleType, 
+  void * pHandle, 
+  VkMemoryMetalHandlePropertiesEXT * pMemoryMetalHandleProperties)
+@extern("vkGetMemoryMetalHandlePropertiesEXT");
+
+alias VkViSurfaceCreateFlagsNN = VkFlags;
+
+struct VkViSurfaceCreateInfoNN {
+  VkStructureType sType;
+  void * pNext;
+  VkViSurfaceCreateFlagsNN flags;
+  void * window;
+}
+
+alias PFN_vkCreateViSurfaceNN = fn VkResult(
+  VkInstance instance, 
+  VkViSurfaceCreateInfoNN * pCreateInfo, 
+  VkAllocationCallbacks * pAllocator, 
+  VkSurfaceKHR * pSurface);
+
+fn VkResult createViSurfaceNN(
+  VkInstance instance, 
+  VkViSurfaceCreateInfoNN * pCreateInfo, 
+  VkAllocationCallbacks * pAllocator, 
+  VkSurfaceKHR * pSurface)
+@extern("vkCreateViSurfaceNN");
+
+alias VkWaylandSurfaceCreateFlagsKHR = VkFlags;
+
+typedef WlDisplay = void;
+
+typedef WlSurface = void;
+
+struct VkWaylandSurfaceCreateInfoKHR {
+  VkStructureType sType;
+  void * pNext;
+  VkWaylandSurfaceCreateFlagsKHR flags;
+  WlDisplay * display;
+  WlSurface * surface;
+}
+
+alias PFN_vkCreateWaylandSurfaceKHR = fn VkResult(
+  VkInstance instance, 
+  VkWaylandSurfaceCreateInfoKHR * pCreateInfo, 
+  VkAllocationCallbacks * pAllocator, 
+  VkSurfaceKHR * pSurface);
+
+alias PFN_vkGetPhysicalDeviceWaylandPresentationSupportKHR = fn VkBool32(
+  VkPhysicalDevice physicalDevice, 
+  uint queueFamilyIndex, 
+  WlDisplay * display);
+
+fn VkResult createWaylandSurfaceKHR(
+  VkInstance instance, 
+  VkWaylandSurfaceCreateInfoKHR * pCreateInfo, 
+  VkAllocationCallbacks * pAllocator, 
+  VkSurfaceKHR * pSurface)
+@extern("vkCreateWaylandSurfaceKHR");
+
+fn VkBool32 getPhysicalDeviceWaylandPresentationSupportKHR(
+  VkPhysicalDevice physicalDevice, 
+  uint queueFamilyIndex, 
+  WlDisplay * display)
+@extern("vkGetPhysicalDeviceWaylandPresentationSupportKHR");
 
 struct VkPhysicalDevicePortabilitySubsetFeaturesKHR {
   VkStructureType sType;

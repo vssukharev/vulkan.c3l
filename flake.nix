@@ -18,6 +18,7 @@
     in 
     {
       devShells.default = pkgs.callPackage ./shell.nix { inherit c3c; };
+      devShells.examples = pkgs.callPackage ./shell.nix { inherit c3c; examples = true; };
     }
   );
 }

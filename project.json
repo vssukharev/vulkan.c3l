@@ -1,13 +1,19 @@
 {
   "output" : "build",
 
-  "dependency-search-paths" : [ "bindgen.c3l" ],
-  "dependencies" : [ "bindgen" ],
+  "dependency-search-paths" : [ "bindgen", "." ],
 
   "targets" : {
-    "all" : {
-      "sources" : [ "main.c3" ],
+    "regenerate" : {
+      "sources" : [ "generator.c3" ],
       "type" : "executable",
+      "dependencies" : [ "bindgen" ],
+    },
+
+    "examples" : {
+      "sources" : [ "examples/**" ],
+      "type" : "executable",
+      "dependencies" : [ "vulkan" ],
     }
   },
 }

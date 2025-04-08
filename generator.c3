@@ -228,9 +228,8 @@ fn String trans_type(String name, Allocator alloc)
 
 macro void translate_headers(Path root, String $major_ver, String $minor_ver)
 {
-  var $ver = $major_ver +++ "_" +++ $minor_ver;
-  Path out = root.tappend("import/vk" +++ $ver +++ ".c3i")!!;
-  Path current = root.tappend("headers/" +++ $ver)!!;
+  Path out = root.tappend("vulkan.c3l/vk" +++ $major_ver +++ $minor_ver +++ ".c3i")!!;
+  Path current = root.tappend("headers/" +++ $major_ver +++ "." +++ $minor_ver)!!;
   path::chdir(current)!!; 
   log("Changed directory to %s", current);
 
